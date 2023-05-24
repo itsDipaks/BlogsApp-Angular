@@ -1,26 +1,32 @@
 
-<div class="container-sm">
+<div class="container-sm  p-8" style="width:45%">
     <main class="form-signin w-100 m-auto">
-        <form #loginForm="ngForm" (ngSubmit)=getUsers(loginForm.value)>
+        <form #loginForm="ngForm" (ngSubmit)=getLogindata($event,loginForm)>
           <img class="mb-4 mt-5"  src="https://cdn-icons-png.flaticon.com/128/7141/7141726.png" alt="" width="72" height="77">
-          <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+          <h1 class="h3 mb-3 fw-normal">Please Signin</h1>
       
           <div class="form-floating">
-            <input   type="email" class="form-control"  name="email" placeholder="myemail@gamail.com" ngModel >
+            <input #upemail="ngModel"  type="email" class="form-control" required name="email" placeholder="myemail@gamail.com" ngModel >
             <label for="floatingInput">Email address</label>
+            <div *ngIf="upemail.invalid && upemail.touched " class="form-text val"  >
+              Please Enter Email
+            </div>
           </div>
           <br>
           <div class="form-floating">
-            <input type="password"  class="form-control"   name="password" placeholder="Password" ngModel >
-            <label for="floatingPassword">Password</label>
+            <input #uppassword="ngModel"  type="password"  class="form-control" required  name="password" placeholder="Password" ngModel >
+            <label  for="floatingPassword">Password</label>
+            <div *ngIf="uppassword.invalid && uppassword.touched " class="form-text val"  >
+             Please Enter password
+           </div>
           </div>
-          <br>
+          <br>          
           <!-- <div class="checkbox mb-3">
             <label>
               <input type="checkbox" value="remember-me"> Remember me
             </label>
           </div> -->
-          <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+          <button class="w-50 btn btn-lg btn-primary  " type="submit">Sign in</button>
         </form>
       </main>
 </div>

@@ -1,0 +1,9 @@
+.val{
+    color : crimson;
+  }
+  input.ng-valid.ng-touched{
+    border : 2px solid darkseagreen;
+  }
+  input.ng-invalid.ng-touched{
+    border : 2px solid crimson;
+  }

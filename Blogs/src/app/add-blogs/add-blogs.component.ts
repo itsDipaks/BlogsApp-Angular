@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./add-blogs.component.css']
 })
 export class AddBlogsComponent {
-
+ BlogData= {
+    title : "Blog Title",
+    content : "",
+    imageurl : "",
+  }
 }

@@ -7,7 +7,8 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
 UsersData:any={}
-getUsers(data:any){
-console.log(data)
+getLogindata(event:any,data:any){
+  event.preventDefault();
+console.log(data.value)
 }
 }
