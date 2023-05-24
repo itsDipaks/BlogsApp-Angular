@@ -1,26 +1,26 @@
 <!-- Using Reactive form method  -->
 <div class="container-sm  p-8" style="width:45%">
     <main class="form-signin   m-auto">
-        <form    >
-          <img class="mb-4 mt-5"  src="https://cdn-icons-png.flaticon.com/128/7141/7141726.png" alt="" width="72" height="77">
+        <form  [formGroup]="SignupData"   >
+          <img class="mb-4 mt-5"  src="https://cdn-icons-png.flaticon.com/128/7141/7141726.png" alt="" width="72" height="77"/>
           <h1 class="h3 mb-3 fw-normal">Please Signup </h1>
       
           <div class="form-floating">
-            <input   type="text" class="form-control"  name="email" placeholder="Name" ngModel >
+            <input title="eg. Dipak Pawar" formControlName="name"  type="text" class="form-control"    placeholder="Name"/>
             <label for="floatingInput">Name</label>
           </div>
           <br>
           <div class="form-floating">
-            <input   type="email" class="form-control"  name="email" placeholder="myemail@gamail.com" ngModel >
+            <input formControlName="email"  title="eg. dipak@gmail.com"  type="email" class="form-control"    placeholder="myemail@gamail.com"   >
             <label for="floatingInput">Email address</label>
           </div>
           <br>
           <div class="form-floating">
-            <input type="password"  class="form-control"   name="password" placeholder="Password" ngModel >
+            <input type="password" formControlName="password" title="eg. Dipak1234@"   class="form-control"     placeholder="Password"   />
             <label for="floatingPassword">Password</label>
           </div>
           <br>          
-          <button class="w-50 btn btn-lg btn-primary" type="submit">Sign in</button>
+          <button class="w-50 btn btn-lg btn-primary" (click)="submitSignupData()" type="button">Sign in</button>
         </form>
       </main>
 </div>
