@@ -2,5 +2,7 @@ import { ActivatedRouteSnapshot, CanActivateFn, RouterStateSnapshot } from '@ang
 
 export const authGuard: CanActivateFn = (route:ActivatedRouteSnapshot, state:RouterStateSnapshot) => {
 
-  return false;
+  return true;
 };
+
+
