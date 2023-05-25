@@ -1,0 +1,6 @@
+.nav-link{
+    color: whitesmoke;
+}
+.nav-item .active{
+    color: rgb(228, 0, 0);
+}

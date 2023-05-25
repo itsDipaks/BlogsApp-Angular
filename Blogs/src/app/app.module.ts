@@ -3,37 +3,36 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { AboutComponent } from './about/about.component';
-import { ContactComponent } from './contact/contact.component';
-import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
-import { AddBlogsComponent } from './add-blogs/add-blogs.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { SignupComponent } from './signup/signup.component';
-import { UserService } from 'src/Services/User.service';
 import { CaraouselCompo } from './SmallComponents/carousel.component';
-import { BlogdetailsComponent } from './blogdetails/blogdetails.component';
+import { BlogdetailsComponent } from './Components/blogdetails/blogdetails.component';
+import { NotfoundComponent } from './Components/notfound/notfound.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NavbarComponent } from './Components/navbar/navbar.component';
+import { LoginComponent } from './Components/login/login.component';
+import { HomeComponent } from './Components/home/home.component';
+import { AddBlogsComponent } from './Components/add-blogs/add-blogs.component';
+import { SignupComponent } from './Components/signup/signup.component';
+import { AuthService } from './Services/auth.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    AboutComponent,
-    ContactComponent,
     LoginComponent,
     HomeComponent,
     AddBlogsComponent,
     SignupComponent,
     CaraouselCompo,
-    BlogdetailsComponent
+    BlogdetailsComponent,
+    NotfoundComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,FormsModule,ReactiveFormsModule,HttpClientModule
+    AppRoutingModule,FormsModule,ReactiveFormsModule,HttpClientModule, FontAwesomeModule
   ],
-  providers: [UserService],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

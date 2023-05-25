@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserService } from 'src/Services/User.service';
+import { AuthService } from 'src/app/Services/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -10,14 +10,13 @@ import { UserService } from 'src/Services/User.service';
 })
 export class SignupComponent {
   SignupData: any
-  constructor(private Use: UserService, private router: Router) {
+  constructor(private Use: AuthService, private router: Router) {
 
   }
 
 
   submitSignupData() {
-    this.Use.addUser(this.SignupData.value).subscribe(res => {
-     
+    this.Use.signup(this.SignupData.value).subscribe(res => {
       if (res) {
         this.router.navigateByUrl('login');
       }

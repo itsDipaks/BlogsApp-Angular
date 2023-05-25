@@ -1,39 +1,43 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
-import { ContactComponent } from './contact/contact.component';
-import { LoginComponent } from './login/login.component';
-import { AddBlogsComponent } from './add-blogs/add-blogs.component';
-import { SignupComponent } from './signup/signup.component';
-import { BlogdetailsComponent } from './blogdetails/blogdetails.component';
+import { BlogdetailsComponent } from './Components/blogdetails/blogdetails.component';
+import { NotfoundComponent } from './Components/notfound/notfound.component';
+import { HomeComponent } from './Components/home/home.component';
+import { AddBlogsComponent } from './Components/add-blogs/add-blogs.component';
+import { LoginComponent } from './Components/login/login.component';
+import { SignupComponent } from './Components/signup/signup.component';
+import { authGuard } from './Guards/auth.guard';
 
 const routes: Routes = [
-{
-component:HomeComponent,
-path:""
-},
-{
-component:AboutComponent,
-path:"about"
-},
+  {
+    component: HomeComponent,
+    path: ""
+  },
 
-{
-component:AddBlogsComponent,
-path:"addblog"
-},
-{
-  component:LoginComponent,
-  path:"login"
+  {
+    component: AddBlogsComponent,
+    path: "addblog",canActivate:[authGuard]
   },
-{
-  component:SignupComponent,
-  path:"signup"
+  {
+    component: LoginComponent,
+    path: "login"
   },
-{
-  component:BlogdetailsComponent,
-  path:"blogdetails"
-  }
+  {
+    component: SignupComponent,
+    path: "signup"
+  },
+  {
+    component: BlogdetailsComponent,
+    path: "blogdetails"
+  },
+  {
+    component: NotfoundComponent,
+    path: "**"
+  },
+  // {
+  //   path:'', redirectTo:"/login",
+  //   pathMatch: "full"
+  // },
 
 ];
 
