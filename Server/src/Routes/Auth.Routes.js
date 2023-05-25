@@ -1,16 +1,15 @@
 let {Router} = require("express");
- 
+
 const bcrypt = require("bcrypt");
 var jwt = require("jsonwebtoken");
-const { UserModel } = require("../Models/User.model");
+const {UserModel} = require("../Models/User.model");
 require("dotenv").config;
 
 let AuthRouter = Router();
-const privateKey = process.env.PRIVATEKEY;
 
 // ----------------------Add Employee ----------------------------
 
-AuthRouter.post("/singup", async (req, res) => {
+AuthRouter.post("/signup", async (req, res) => {
   let {email} = req.body;
   let isexist = await UserModel.findOne({email});
   if (isexist) {
@@ -18,11 +17,7 @@ AuthRouter.post("/singup", async (req, res) => {
       .status(400)
       .send({msg: "User Already Exist With this Email Plase Login !!"});
   } else {
-    const {
-      name,
-      email,
-      password,
-    } = req.body;
+    const {name, email, password} = req.body;
 
     bcrypt.hash(password, 4, async function (err, hashedpassword) {
       if (err) {
@@ -30,7 +25,7 @@ AuthRouter.post("/singup", async (req, res) => {
       } else {
         try {
           let newEmployee = new UserModel({
-         name,
+            name,
             email,
             password: hashedpassword,
           });
@@ -39,55 +34,43 @@ AuthRouter.post("/singup", async (req, res) => {
         } catch (err) {
           res
             .status(404)
-            .send({msg: "something wents wrong to uploading the data",err});
+            .send({msg: "something wents wrong to uploading the data", err});
         }
       }
     });
   }
 });
 
-// ----------------------Login Employee ----------------------------
 
+// ----------------------Login Employee ----------------------------
 AuthRouter.post("/login", async (req, res) => {
   const {email, password} = req.body;
-
   try {
     if (email && password) {
       const Checkuser = await UserModel.findOne({email});
-      if (!Checkuser) {
-        res.status(404).json({msg: "Unauthorized", isuser: false});
-      } else {
-        let isadmincheck = Checkuser.isAdmin;
 
+      if (!Checkuser) {
+        res.status(401).send({msg: "User Not Found Please Signup !! "});
+      } else {
         const hashedpassword = Checkuser.password;
         const user_id = Checkuser._id;
         bcrypt.compare(password, hashedpassword, function (err, result) {
           if (result) {
-           UserModel.findOneAndUpdate({_id:Checkuser._id},{ $set:{Status:"Active"} })
-            var token = jwt.sign({user_id: user_id}, privateKey);
-            res.status(200).json({
-              token: token,
-              isAdmin: isadmincheck,
-              userinfo: {
-                name: Checkuser.firstname + " " + Checkuser.lastname,
-                email: Checkuser.email,
-                _id:Checkuser._id
-              },
-              msg: "Login sucsess",
-            });
+            var token = jwt.sign({user_id: user_id}, "ddffffff");
+            res.status(200).send({token: token, user_id: user_id});
           } else {
-            res.status(401).json({
-              msg: "WrongCredential",
-              isuser: false,
+            res.status(404).send({
+              msg: "Authentication Faild please Check your Password",
+              err: err,
             });
           }
         });
       }
     } else {
-      res.json({msg: "FieldMissing", isuser: false});
+      res.send({msg: "Input Field Is Missing"});
     }
   } catch (err) {
-    res.json({msg: "SomeThing Wents Wrong please Try Again"});
+    res.send({msg: "SomeThing Wents Wrong please Try Again", err});
   }
 });
 

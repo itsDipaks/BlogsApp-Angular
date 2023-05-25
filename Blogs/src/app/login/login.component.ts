@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserService } from 'src/Services/User.service';
 
 @Component({
   selector: 'app-login',
@@ -6,9 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-UsersData:any={}
+ 
+constructor(private Use:UserService){
+
+}
 getLogindata(event:any,data:any){
   event.preventDefault();
-console.log(data.value)
+this.Use.login(data.value).subscribe(res=>{
+  console.log(res)
+})
+
+
 }
 }

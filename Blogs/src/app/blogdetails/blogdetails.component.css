@@ -1,0 +1,24 @@
+
+.details-page{
+    position: relative;
+    width: 100%;
+    margin: auto;
+}
+.b-item{
+    background-size: cover;
+    height: 50vh;
+position: relative;
+
+}  
+.b-img{
+width: 100%;
+height: 100%;
+}
+.content{
+    position: absolute;
+    top: 14vh;
+    left: 9%;
+    height: 150vh;
+    background-color: whitesmoke;
+    width: 80%;
+}

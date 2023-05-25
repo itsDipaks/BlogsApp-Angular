@@ -1,74 +1,86 @@
-<div class="container-fluid  d-flex justify-content-between  p-4"  style="width: 90%">
-
-<div class=" p-4" style="width:50%">
+<div
+  class="container-fluid d-flex flex-column flex-md-row justify-content-between p-4"
+  style="width: 95%"
+>
+  <div class="p-4 w-50 mx-2 border">
     <h3 class="p-2">Add New Blog</h3>
-    <form >
-        <div class="form-floating">
-          <input [(ngModel)]="BlogData.title" type="text" class="form-control" name="title" placeholder="Title" />
-          <label for="floatingPassword">Blog Title</label>
-        </div>
-        <br />
-        <div class="form-floating">
-          <textarea
-            class="form-control"
-            placeholder="Leave a comment here"
-            style="height: 100px" [(ngModel)]="BlogData.content"
-            name="content"
-          ></textarea>
-          <label for="floatingTextarea2">Content</label>
-        </div>
-        <br />
-        <div class="form-floating">
-          <input type="text" class="form-control" placeholder="Image Url" />
-          <label for="floatingPassword">Image Url </label>
-        </div>
-        <br />
-    
-        <select
-          class="form-select"
-          aria-label=".form-select-lg example"
-          style="height: 50px"
-        >
-          <option selected>Select Blog Category</option>
-          <option value="Technology">Technology</option>
-          <option value="Farming">Farming</option>
-          <option value="Polytical">Polytical</option>
-          <option value="Industry">Industry</option>
-          <option value="Environment">Environment</option>
-        </select>
-        <br />
-        <button type="submit" class="btn w-50 btn-primary">Submit</button>
-      </form>
-    
-</div>
-  
-
-
-
-  <div class="container border" style="width:45%">
-    <h2 class="   text-center">{{BlogData.title}}</h2>
-    <p class="text-secondary text-center">
-      Written by Richard Searls 1 February 2019 , 6:31 pm
-    </p>
-  
-    <section class="post-content w-80">
-      <div class=" ">
-        <img
-          src="https://randomwordgenerator.com/img/picture-generator/55e9dd474d50a914f1dc8460962e33791c3ad6e04e507440742a7ad2974bc1_640.jpg"
-          alt="featured image"
-          class="img-fluid"
+    <form [formGroup]="BlogData" (ngSubmit)="SubmitBlogData()">
+      <div class="form-floating">
+        <input
+          [(ngModel)]="BlogData.title"
+          type="text"
+          class="form-control"
+          placeholder="Title"
+          formControlName="title"
         />
-  
-        <div class="mx-auto p-4">
-          <p>
-{{BlogData.content}}
-        </p>
-        </div>
+        <label for="floatingPassword">Blog Title</label>
       </div>
-    </section>
+      <br />
+      <div class="form-floating">
+        <textarea
+          class="form-control"
+          placeholder="Leave a comment here"
+          style="height: 100px"
+          [(ngModel)]="BlogData.content"
+          formControlName="content"
+        ></textarea>
+        <label for="floatingTextarea2">Content</label>
+      </div>
+      <br />
+      <div class="form-floating">
+        <input
+          type="text"
+          class="form-control"
+          formControlName="imageurl"
+          [(ngModel)]="BlogData.imageurl"
+          name="imageurl"
+          placeholder="Image Url"
+        />
+        <label for="floatingPassword">Image Url </label>
+      </div>
+      <br />
+
+      <select
+        class="form-select"
+        aria-label=".form-select-lg example"
+        style="height: 50px"
+        formControlName="Category"
+      >
+        <option selected>Select Blog Category</option>
+        <option value="Technology">Technology</option>
+        <option value="Farming">Farming</option>
+        <option value="Polytical">Polytical</option>
+        <option value="Industry">Industry</option>
+        <option value="Environment">Environment</option>
+      </select>
+      <br />
+      <button class="btn w-50 btn-primary">Submit</button>
+    </form>
   </div>
 
+  <div class="w-50">
+    <h4 class="text-center text-primary">Privew</h4>
+    <div class="border">
+      <h2 class="text-center">{{ BlogData.title }}</h2>
+      <p class="text-secondary text-center">
+        Written by Richard Searls 1 February 2019 , 6:31 pm
+      </p>
+
+      <section class="post-content w-80">
+        <div class=" ">
+          <img
+            src="{{ BlogData.imageurl }}"
+            alt="{{ BlogData.imageurl }}"
+            class="img-fluid"
+          />
+
+          <div class="mx-auto p-4">
+            <p>
+              {{ BlogData.content }}
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
 </div>
-
-
-

@@ -10,7 +10,11 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { AddBlogsComponent } from './add-blogs/add-blogs.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { SignupComponent } from './signup/signup.component';
+import { UserService } from 'src/Services/User.service';
+import { CaraouselCompo } from './SmallComponents/carousel.component';
+import { BlogdetailsComponent } from './blogdetails/blogdetails.component';
 
 @NgModule({
   declarations: [
@@ -21,13 +25,15 @@ import { SignupComponent } from './signup/signup.component';
     LoginComponent,
     HomeComponent,
     AddBlogsComponent,
-    SignupComponent
+    SignupComponent,
+    CaraouselCompo,
+    BlogdetailsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,FormsModule,ReactiveFormsModule
+    AppRoutingModule,FormsModule,ReactiveFormsModule,HttpClientModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
