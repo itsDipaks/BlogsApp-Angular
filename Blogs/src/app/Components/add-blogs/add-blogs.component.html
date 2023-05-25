@@ -14,6 +14,14 @@
           formControlName="title"
         />
         <label for="floatingPassword">Blog Title</label>
+        <div
+        *ngIf="
+        BlogData.get('title').invalid && BlogData.get('title').touched
+        "
+        class="form-text val"
+      >
+       Title is Missing 
+      </div>
       </div>
       <br />
       <div class="form-floating">
@@ -25,6 +33,14 @@
           formControlName="content"
         ></textarea>
         <label for="floatingTextarea2">Content</label>
+        <div
+        *ngIf="
+        BlogData.get('content').invalid && BlogData.get('content').touched
+        "
+        class="form-text val"
+      >
+       Blog Content is Missing 
+      </div>
       </div>
       <br />
       <div class="form-floating">
@@ -33,10 +49,17 @@
           class="form-control"
           formControlName="imageurl"
           [(ngModel)]="BlogData.imageurl"
-          name="imageurl"
           placeholder="Image Url"
         />
         <label for="floatingPassword">Image Url </label>
+        <div
+        *ngIf="
+        BlogData.get('imageurl').invalid && BlogData.get('imageurl').touched
+        "
+        class="form-text val"
+      >
+      Image url is Missing 
+      </div>
       </div>
       <br />
 
@@ -53,8 +76,16 @@
         <option value="Industry">Industry</option>
         <option value="Environment">Environment</option>
       </select>
+      <div
+      *ngIf="
+      BlogData.get('Category').invalid && BlogData.get('Category').touched
+      "
+      class="form-text val"
+    >
+    Category is Missing 
+    </div>
       <br />
-      <button class="btn w-50 btn-primary">Submit</button>
+      <button [disabled]="BlogData.invalid" class="btn w-50 btn-primary">Submit</button>
     </form>
   </div>
 

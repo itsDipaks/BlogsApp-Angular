@@ -1,0 +1,24 @@
+.val{
+    color : crimson;
+  }
+  input.ng-valid.ng-touched{
+    border : 1px solid darkseagreen;
+  }
+  input.ng-invalid.ng-touched{
+    border : 1px solid crimson;
+  }
+  
+  textarea.ng-valid.ng-touched{
+    border : 1px solid darkseagreen;
+  }
+  textarea.ng-invalid.ng-touched{
+    border : 1px solid crimson;
+  }
+  
+  select.ng-valid.ng-touched{
+    border : 1px solid darkseagreen;
+  }
+  select.ng-invalid.ng-touched{
+    border : 1px solid crimson;
+  }
+  

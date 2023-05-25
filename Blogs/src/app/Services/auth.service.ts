@@ -10,8 +10,8 @@ export class AuthService {
   constructor(private router:Router,private http:HttpClient) { }
 
 
-  setToken(res:any){
-localStorage.setItem("token",res.token)
+  setToken(token:any){
+localStorage.setItem("token",token)
   }
 
   getToken():string | null{
