@@ -8,6 +8,7 @@ import { AuthService } from 'src/app/Services/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  loading:boolean=false
   faLock=faLock
 constructor(private Use:AuthService,private router:Router){
 
@@ -15,14 +16,19 @@ constructor(private Use:AuthService,private router:Router){
  
 getLogindata (event:any,data:any){
   event.preventDefault();
-this.Use.login(data.value).subscribe((res:any )=>{
+  this.loading=true
   try{
-    this.Use.setToken(res.token)
-    this.router.navigate(['/'])
+    this.Use.login(data.value).subscribe((res:any )=>{
+      console.log(res)
+        this.Use.setToken(res.token)
+        this.loading=false
+        this.router.navigate(['/'])
+    })
   }catch(err){
-    alert("login faild")
-    this.router.navigate(['/'])
+        alert("login faild")
+        this.loading=false
+        this.router.navigate(['/'])
   }
-})
+
 }
 }

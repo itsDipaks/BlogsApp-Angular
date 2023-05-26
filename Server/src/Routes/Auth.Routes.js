@@ -2,7 +2,7 @@ let {Router} = require("express");
 
 const bcrypt = require("bcrypt");
 var jwt = require("jsonwebtoken");
-const {UserModel} = require("../Models/User.model");
+const { UserModel } = require("../Schema/User.Schema");
 require("dotenv").config;
 
 let AuthRouter = Router();
@@ -56,7 +56,7 @@ AuthRouter.post("/login", async (req, res) => {
         const user_id = Checkuser._id;
         bcrypt.compare(password, hashedpassword, function (err, result) {
           if (result) {
-            var token = jwt.sign({user_id: user_id}, "ddffffff");
+            var token = jwt.sign({user_id: user_id}, process.env.PRIVATEKEY);
             res.status(200).send({token: token, user_id: user_id});
           } else {
             res.status(404).send({

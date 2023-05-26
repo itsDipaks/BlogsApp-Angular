@@ -85,7 +85,8 @@
     Category is Missing 
     </div>
       <br />
-      <button [disabled]="BlogData.invalid" class="btn w-50 btn-primary">Submit</button>
+      <button [disabled]="BlogData.invalid || loading" class="btn w-50 btn-primary"> <span *ngIf="loading" class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+        <span *ngIf="!loading">Submit</span></button>
     </form>
   </div>
 

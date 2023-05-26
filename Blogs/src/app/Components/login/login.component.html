@@ -1,15 +1,15 @@
 
-<div class="container-sm  p-8" style="width:45%">
+<div class="container-sm  p-8 mt-5" style="width:45%">
     <main class="form-signin w-100 m-auto">
         <form #loginForm="ngForm" (ngSubmit)=getLogindata($event,loginForm)>
-          <img class="mb-4 mt-5"  src="https://cdn-icons-png.flaticon.com/128/7141/7141726.png" alt="" width="72" height="77">
+          <!-- <img class="mb-4 mt-5"  src="https://cdn-icons-png.flaticon.com/128/7141/7141726.png" alt="" width="72" height="77"> -->
           <h1 class="h3 mb-3 fw-normal text-center"> Sign in</h1>
           <div class="text-center">
 
             <fa-icon class="fa-3x" [icon]="faLock"></fa-icon>
           </div>
           <div class="form-floating">
-            <input #upemail="ngModel"  type="email" class="form-control" required name="email" placeholder="myemail@gamail.com" ngModel >
+            <input #upemail="ngModel"  type="email" email class="form-control"  required name="email" placeholder="myemail@gamail.com" ngModel >
             <label for="floatingInput">Email address</label>
             <div *ngIf="upemail.invalid && upemail.touched " class="form-text val"  >
               Please Enter Email
@@ -17,11 +17,13 @@
           </div>
           <br>
           <div class="form-floating">
-            <input #uppassword="ngModel"  type="password"  class="form-control" required  name="password" placeholder="Password" ngModel >
+            <input #uppassword="ngModel"  type="password"  minlength="8"
+            maxlength="20"   class="form-control" required  name="password" placeholder="Password" ngModel >
             <label  for="floatingPassword">Password</label>
             <div *ngIf="uppassword.invalid && uppassword.touched " class="form-text val"  >
              Please Enter password
            </div>
+           
           </div>
           <br>          
           <!-- <div class="checkbox mb-3">
@@ -29,8 +31,8 @@
               <input type="checkbox" value="remember-me"> Remember me
             </label>
           </div> -->
-          <p class="text-end"> Don't have an account .. <a routerLink="../signup">Sign Up...</a></p>
-          <button class="w-50 btn btn-lg btn-primary border  text-center" type="submit">Sign in</button>
+          <p class="text-end text-secondary"> Don't have an account ? <a routerLink="../signup"> Sign Up...</a></p>
+          <button [disabled]="loginForm.invalid || loading" class="w-50 btn btn-lg btn-primary border  text-center" type="submit"> <span *ngIf="loading" class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span><span *ngIf="!loading">Login</span></button>
         </form>
       </main>
 </div>

@@ -7,6 +7,7 @@ import { BlogService } from 'src/app/Services/blog.service';
   styleUrls: ['./add-blogs.component.css']
 })
 export class AddBlogsComponent {
+  loading: boolean = false;
  constructor(private blog:BlogService){
 
  }
@@ -14,9 +15,16 @@ export class AddBlogsComponent {
 BlogData:any
  
 SubmitBlogData(){
-  this.blog.addblog(this.BlogData).subscribe(res=>{
-    console.log(res)
+  this.loading = true; 
+  this.blog.addblog(this.BlogData.value).subscribe(res=>{
+if(res){
+  alert("Added")
+}else{
+  alert("not added")
+}
+this.loading = false; 
   })
+  
 
 }
 
