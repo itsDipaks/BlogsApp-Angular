@@ -1,43 +1,53 @@
-  <header>
-    <div class="px-3 py-3 text-bg-dark">
-      <div class="container">
-   
-        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-          <a href="/" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
-           Blog App
-          </a>
-<!-- <div  class="collapse navbar-collapse" id="navbarResponsive"> -->
+<header class="fixed-top border mb-4 top-0">
+  <div class="px-3 py-3 text-bg-light">
+    <div class="container">
+      <div
+        class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
+      >
+        <a
+          href="/"
+          class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none"
+        >
+          Blog App
+        </a>
+        <!-- <div  class="collapse navbar-collapse" id="navbarResponsive"> -->
 
-  <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
-    <li  class="nav-item">
-      <a routerLinkActive="active" routerLink="" class="nav-link">
-        Home
-      </a>
-    </li>
-    <li  class="nav-item">
-      <a routerLink="addblog" routerLinkActive="active"  class="nav-link">
-        Add Blog
-      </a>
-    </li>
-    <li   class="nav-item">
-      <a routerLink="login" routerLinkActive="active" class="nav-link">
-        Login
-      </a>
-    </li>
-    <li   class="nav-item">
-      <a routerLink="signup" routerLinkActive="active" class="nav-link">
-        Signup
-      </a>
-    </li>
-    <li   class="nav-item">
-      <a routerLink="blogdetails" routerLinkActive="active" class="nav-link">
-        BlogDetails
-      </a>
-    </li>
-  </ul>
-<!-- </div> -->
-        </div>
+        <ul
+          class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small"
+        >
+          <li class="nav-item">
+            <a routerLinkActive="active" routerLink="" class="nav-link">
+              Home
+            </a>
+          </li>
+          <li *ngIf="istoken" class="nav-item">
+            <a routerLink="addblog" routerLinkActive="active" class="nav-link">
+              Add Blog
+            </a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="login" routerLinkActive="active" class="nav-link">
+              Login
+            </a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="signup" routerLinkActive="active" class="nav-link">
+              Signup
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              routerLink="blogdetails"
+              routerLinkActive="active"
+              class="nav-link"
+            >
+              BlogDetails
+            </a>
+          </li>
+        </ul>
+        <!-- </div> -->
       </div>
     </div>
-  </header>
-  <router-outlet></router-outlet>
+  </div>
+</header>
+

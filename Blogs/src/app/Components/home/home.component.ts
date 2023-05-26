@@ -6,14 +6,18 @@ import { BlogService } from 'src/app/Services/blog.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent  implements OnInit{
+export class HomeComponent implements OnInit {
+  blogs: any = [];
 
-  constructor(private blog:BlogService){
+
+  constructor(private blog: BlogService) {
+    console.log(this.blogs)
   }
 
-  ngOnInit(): void {
-  this.blog.getallblog().subscribe(res=>{
-    console.log(res)
-  })
+  ngOnInit() {
+    this.blog.getallblog().subscribe(res =>this.blogs=res)
   }
+
+
+
 }

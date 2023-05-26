@@ -19,15 +19,22 @@ getLogindata (event:any,data:any){
   this.loading=true
   try{
     this.Use.login(data.value).subscribe((res:any )=>{
-      console.log(res)
+      console.log(res ,"send status")
+      if(res.msg=="User Not Found Please Signup!!" || res.msg=="Authentication Faild please Check your Password"){
+        alert( res.msg)
+        this.loading=false
+      }else{
         this.Use.setToken(res.token)
+        alert("login suess")
         this.loading=false
         this.router.navigate(['/'])
+      }
     })
   }catch(err){
-        alert("login faild")
-        this.loading=false
-        this.router.navigate(['/'])
+    // console.log(err,"error from catch")
+    //     alert("login faild")
+      
+        // this.router.navigate(['/'])
   }
 
 }

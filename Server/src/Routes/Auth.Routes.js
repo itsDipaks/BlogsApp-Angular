@@ -21,7 +21,7 @@ AuthRouter.post("/signup", async (req, res) => {
 
     bcrypt.hash(password, 4, async function (err, hashedpassword) {
       if (err) {
-        res.status(404).send({msg: "Something wents wrong ", err: err});
+        res.status(401).send({msg: "Something wents wrong ", err: err});
       } else {
         try {
           let newEmployee = new UserModel({
@@ -33,7 +33,7 @@ AuthRouter.post("/signup", async (req, res) => {
           res.status(200).send({msg: "Signup Sucessfully", data: newEmployee});
         } catch (err) {
           res
-            .status(404)
+            .status(401)
             .send({msg: "something wents wrong to uploading the data", err});
         }
       }
@@ -50,7 +50,7 @@ AuthRouter.post("/login", async (req, res) => {
       const Checkuser = await UserModel.findOne({email});
 
       if (!Checkuser) {
-        res.status(401).send({msg: "User Not Found Please Signup !! "});
+        res.status(201).send({msg: "User Not Found Please Signup!!"});
       } else {
         const hashedpassword = Checkuser.password;
         const user_id = Checkuser._id;
@@ -59,7 +59,7 @@ AuthRouter.post("/login", async (req, res) => {
             var token = jwt.sign({user_id: user_id}, process.env.PRIVATEKEY);
             res.status(200).send({token: token, user_id: user_id});
           } else {
-            res.status(404).send({
+            res.status(201).send({
               msg: "Authentication Faild please Check your Password",
               err: err,
             });

@@ -7,7 +7,7 @@ let BlogRouter=Router()
 BlogRouter.get('/allblogs', async (req, res) => {
     try {
       const allBlogs = await BlogModel.find();
-      res.json(allBlogs);
+      res.status(200).send({data:allBlogs});
     } catch (err) {
       console.error(err);
       res.status(500).json({ message: 'Internal Server Error' });
@@ -16,13 +16,14 @@ BlogRouter.get('/allblogs', async (req, res) => {
 
 
   BlogRouter.post("/add",Authenticate,async(req,res)=>{
-    let {title,content,user_id,imageurl}=req.body
+    let {title,content,user_id,imageurl,Category}=req.body
     try {
         const BlogPost = new BlogModel({
           title,
           content,
           imageurl,
           author:user_id,
+          Category
         });
         await BlogPost.save();
         res.status(200).send({msg: "Blog Has been Added"});

@@ -10,8 +10,6 @@ export class BlogService {
   url:string = "http://localhost:8100/blog/";
   constructor(private http:HttpClient,private router:Router,private use:AuthService) {
    }
-
-   
 getallblog(){
 return this.http.get(this.url+"allblogs")
 }
