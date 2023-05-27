@@ -15,6 +15,9 @@ import { HomeComponent } from './Components/home/home.component';
 import { AddBlogsComponent } from './Components/add-blogs/add-blogs.component';
 import { SignupComponent } from './Components/signup/signup.component';
 import { AuthService } from './Services/auth.service';
+import { MyblogsComponent } from './Components/myblogs/myblogs.component';
+import { UserProfileComponent } from './Components/user-profile/user-profile.component';
+import { EditBlogComponent } from './Components/edit-blog/edit-blog.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { AuthService } from './Services/auth.service';
     SignupComponent,
     CaraouselCompo,
     BlogdetailsComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    MyblogsComponent,
+    UserProfileComponent,
+    EditBlogComponent,
   ],
   imports: [
     BrowserModule,

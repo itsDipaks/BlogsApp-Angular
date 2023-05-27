@@ -16,7 +16,6 @@ BlogData:any
  
 SubmitBlogData(){
   this.loading = true; 
-  console.log(this.BlogData)
   this.blog.addblog(this.BlogData.value).subscribe(res=>{
 if(res){
   alert("Added")

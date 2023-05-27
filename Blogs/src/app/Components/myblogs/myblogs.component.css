@@ -1,0 +1,18 @@
+.text-card-content{
+    height: 45px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
+  .card-effect {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 20px;
+    transition: all 0.35s ease;
+}
+
+.card-effect:hover {
+    box-shadow: none;
+    transform: translateY(5px);
+}
+
+ 
+ 

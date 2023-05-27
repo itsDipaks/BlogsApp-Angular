@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/Services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -6,18 +8,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  istoken:boolean=false
-  constructor(){
-  
+  istoken: boolean = true
+  constructor(private router: Router,private auth:AuthService) {
+
   }
-  
+  menuType: String = "default"
   ngOnInit(): void {
-    let token=localStorage.getItem("token")
-    if(token){
-      this.istoken=true
-    }else{
-      this.istoken=false
-    }
+    this.router.events.subscribe((res: any) => {
+      if (res.url) {
+        if (localStorage.getItem("token") && res.url.includes("user")) {
+          this.menuType = "user"
+        } else {
+          this.menuType = "default"
+        }
+      }
+    })
+  }
+
+  logoutme(){
+    this.auth.logout()
+    this.router.navigate(["/"])
   }
 
 }

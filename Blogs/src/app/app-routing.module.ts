@@ -7,16 +7,30 @@ import { AddBlogsComponent } from './Components/add-blogs/add-blogs.component';
 import { LoginComponent } from './Components/login/login.component';
 import { SignupComponent } from './Components/signup/signup.component';
 import { authGuard } from './Guards/auth.guard';
+import { UserProfileComponent } from './Components/user-profile/user-profile.component';
+import { MyblogsComponent } from './Components/myblogs/myblogs.component';
+import { EditBlogComponent } from './Components/edit-blog/edit-blog.component';
 
 const routes: Routes = [
   {
     component: HomeComponent,
     path: ""
   },
-
   {
     component: AddBlogsComponent,
-    path: "addblog",canActivate:[authGuard]
+    path: "user-addblog",canActivate:[authGuard]
+  },
+  {
+    component: MyblogsComponent,
+    path: "user-blogs",canActivate:[authGuard]
+  },
+  {
+    component: UserProfileComponent,
+    path: "user-profile",canActivate:[authGuard]
+  },
+  {
+    component: EditBlogComponent,
+    path: "user-updateblog/:id",canActivate:[authGuard]
   },
   {
     component: LoginComponent,
@@ -28,7 +42,11 @@ const routes: Routes = [
   },
   {
     component: BlogdetailsComponent,
-    path: "blogdetails"
+    path: "blogdetails/:id" 
+  },
+  {
+    component: BlogdetailsComponent,
+    path:"user-blogs/blogdetails/:id"
   },
   {
     component: NotfoundComponent,

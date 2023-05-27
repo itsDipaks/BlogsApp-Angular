@@ -25,7 +25,7 @@ getLogindata (event:any,data:any){
         this.loading=false
       }else{
         this.Use.setToken(res.token)
-        alert("login suess")
+      
         this.loading=false
         this.router.navigate(['/'])
       }

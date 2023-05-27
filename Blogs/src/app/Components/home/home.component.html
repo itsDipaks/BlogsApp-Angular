@@ -11,6 +11,7 @@
         </p>
       </div>
     </div>
+
     <div class="row g-8">
       <div class="col-md-8 col-lg-4" *ngFor="let val of blogs.data">
         <div class="blog-post card-effect">
@@ -18,18 +19,19 @@
             <img
               src={{val?.imageurl}} 
               style="height: 100%"
-              alt=""
+              alt="Blog Image"
             />
           </div>
           <h6 class="text-primary mt-2">{{ val?.Category }}</h6>
           <h5 class="mt-2">
-            <a href="#">{{ val?.title }}</a>
+            <a  routerLink="blogdetails/{{val?._id}}">{{ val?.title }}</a>
           </h5>
           <p class="text-card-content">{{ val?.content }}</p><span>. . . . </span>
-          <h6 class="text-primary mt-2">Read More ..</h6>
+          <h6 class="text-primary mt-2" routerLink="blogdetails/{{val?._id}}">Read More ..</h6>
         </div>
       </div>
     </div>
+
   </div>
 
   <div class="row featurette align-items-center container m-auto mt-4">
