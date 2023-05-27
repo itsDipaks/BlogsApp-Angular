@@ -8,6 +8,7 @@ import { BlogService } from 'src/app/Services/blog.service';
 })
 export class MyblogsComponent implements OnInit {
   UsersBlogs: any = []
+  error:string="No Users Blogs "
   constructor(private blog: BlogService) {
 
   }
@@ -18,6 +19,7 @@ export class MyblogsComponent implements OnInit {
       }
     })
   }
+
 
 
   ngOnInit(): void {

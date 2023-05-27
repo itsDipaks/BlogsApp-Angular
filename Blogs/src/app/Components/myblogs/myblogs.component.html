@@ -26,4 +26,7 @@
           </div>
         </div>
       </div>
+      <div *ngIf="UsersBlogs.data.length<1">
+        <app-display-error [displayerror]="error"></app-display-error>
+      </div>
 </section>

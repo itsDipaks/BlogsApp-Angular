@@ -16,9 +16,19 @@ height: 100%;
 }
 .content{
     position: absolute;
-    top: 14vh;
+    top: 5vh;
     left: 9%;
-    height: 150vh;
+    min-height: 100vh;
     background-color: whitesmoke;
     width: 80%;
+}
+
+
+.blog-img-item{
+width: 80%;
+margin: auto;
+}
+.blog-img{
+width: 70%;
+margin: auto;
 }

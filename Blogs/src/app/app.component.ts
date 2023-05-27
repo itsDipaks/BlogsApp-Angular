@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
   
   .routes{
     margin-top: 80px;
+    min-height:80vh;
 }
   `]
 })

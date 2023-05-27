@@ -1,37 +1,57 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  url:string = "http://localhost:8100/auth/";
-  constructor(private router:Router,private http:HttpClient) { }
+  url: string = "http://localhost:8100/auth/";
+  constructor(private router: Router, private http: HttpClient) { }
 
 
-  setToken(token:any){
-localStorage.setItem("token",token)
+  // ======Local Storage Related ==============
+  setToken(token: any) {
+
+    localStorage.setItem("token", token)
   }
 
-  getToken():string | null{
+  getToken(): string | null {
     return localStorage.getItem("token")
   }
-  signup(user:any){
-    return this.http.post(this.url+"signup", user)
-}
-  isLoggedIn(){
-    return this.getToken() !=null
+
+  // =====Auth Services ===========
+  login(user: string) {
+    return this.http.post(this.url + "login", user)
+  }
+
+  signup(user: any) {
+    return this.http.post(this.url + "signup", user)
+  }
+
+  logout() {
+    localStorage.removeItem("token")
+    this.router.navigate(["login"])
   }
 
 
-  login(user:string){
-    return this.http.post(this.url+"login", user)
+  // =========Other ==========
+  isLoggedIn() {
+    return this.getToken() != null;
+  }
+
+
+getUserProfile(){
+  let token: any = this.getToken()
+  const headers = new HttpHeaders().set("token", token);
+ return this.http.get(this.url+"profile",{headers})
 }
 
 
-logout(){
-  localStorage.removeItem("token")
-  this.router.navigate(["login"])
+
+
 }
-}
+
+
+
+

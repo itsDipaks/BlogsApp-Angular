@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { faLock } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from 'src/app/Services/auth.service';
+ 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -21,11 +22,11 @@ getLogindata (event:any,data:any){
     this.Use.login(data.value).subscribe((res:any )=>{
       console.log(res ,"send status")
       if(res.msg=="User Not Found Please Signup!!" || res.msg=="Authentication Faild please Check your Password"){
-        alert( res.msg)
+   
         this.loading=false
       }else{
         this.Use.setToken(res.token)
-      
+     alert("login ")
         this.loading=false
         this.router.navigate(['/'])
       }

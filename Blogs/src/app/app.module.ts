@@ -18,6 +18,10 @@ import { AuthService } from './Services/auth.service';
 import { MyblogsComponent } from './Components/myblogs/myblogs.component';
 import { UserProfileComponent } from './Components/user-profile/user-profile.component';
 import { EditBlogComponent } from './Components/edit-blog/edit-blog.component';
+import { FooterComponent } from './Components/footer/footer.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { DisplayErrorComponent } from './SmallComponents/display-error.component';
+import { AboutComponent } from './Components/about/about.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +37,9 @@ import { EditBlogComponent } from './Components/edit-blog/edit-blog.component';
     MyblogsComponent,
     UserProfileComponent,
     EditBlogComponent,
+    FooterComponent,
+    DisplayErrorComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

@@ -10,11 +10,16 @@ import { authGuard } from './Guards/auth.guard';
 import { UserProfileComponent } from './Components/user-profile/user-profile.component';
 import { MyblogsComponent } from './Components/myblogs/myblogs.component';
 import { EditBlogComponent } from './Components/edit-blog/edit-blog.component';
+import { AboutComponent } from './Components/about/about.component';
 
 const routes: Routes = [
   {
     component: HomeComponent,
     path: ""
+  },
+  {
+    component: AboutComponent,
+    path: "about"
   },
   {
     component: AddBlogsComponent,

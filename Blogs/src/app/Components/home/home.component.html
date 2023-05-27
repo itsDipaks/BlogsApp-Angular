@@ -1,4 +1,18 @@
-<section id="blog" class="bg-light">
+<header class="site-header   py-1">
+  <nav class="container d-flex flex-column flex-md-row justify-content-between">
+    <a class="py-2 d-none d-md-inline-block" href="#">All</a>
+    <a class="py-2 d-none d-md-inline-block" href="#">AutoMobile</a>
+    <a class="py-2 d-none d-md-inline-block" href="#">Academic</a>
+    <a class="py-2 d-none d-md-inline-block" href="#">Global</a>
+    <a class="py-2 d-none d-md-inline-block" href="#">GeoPolytics</a>
+    <a class="py-2 d-none d-md-inline-block" href="#">Health</a>
+    <a class="py-2 d-none d-md-inline-block" href="#">Technology</a>
+    <a class="py-2 d-none d-md-inline-block" href="#">Nature</a>
+    <a class="py-2 d-none d-md-inline-block" href="#">News</a>
+  </nav>
+</header>
+<section id="" class="bg-light">
+ 
   <div class="container">
     <div class="row mb-5">
       <div class="col-md-8 mx-auto text-center">
@@ -27,7 +41,7 @@
             <a  routerLink="blogdetails/{{val?._id}}">{{ val?.title }}</a>
           </h5>
           <p class="text-card-content">{{ val?.content }}</p><span>. . . . </span>
-          <h6 class="text-primary mt-2" routerLink="blogdetails/{{val?._id}}">Read More ..</h6>
+          <h6 class="text-primary mt-2" style="cursor: pointer;" routerLink="blogdetails/{{val?._id}}">Read More ..</h6>
         </div>
       </div>
     </div>

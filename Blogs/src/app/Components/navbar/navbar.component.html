@@ -4,11 +4,19 @@
       <div
         class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
       >
+      <div>
+        
+      </div>
+      <div>
+
+        
+      </div>
+      <img  style="cursor: pointer;"   routerLink=""  src="https://cdn-icons-png.flaticon.com/128/9814/9814634.png"[width]="50" alt="">
         <a
         routerLink="" 
-          class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-primary text-decoration-none"
+          class="d-flex align-items-start my-2 my-lg-0 me-lg-auto text-primary text-decoration-none"
         >
-          Blog App
+          BlogiFiy
         </a>
         <!-- <div  class="collapse navbar-collapse" id="navbarResponsive"> -->
         <div [ngSwitch]="menuType">
@@ -19,6 +27,11 @@
             <li class="nav-item">
               <a routerLinkActive="active" routerLink="" class="nav-link">
                 Home
+              </a>
+            </li>
+            <li class="nav-item">
+              <a routerLinkActive="active" routerLink="about" class="nav-link">
+                About
               </a>
             </li>
             <li class="nav-item">
