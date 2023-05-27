@@ -3,6 +3,7 @@ let {Router} = require("express");
 const bcrypt = require("bcrypt");
 var jwt = require("jsonwebtoken");
 const { UserModel } = require("../Schema/User.Schema");
+const { Authenticate } = require("../Middleware/Auth.middleware");
 require("dotenv").config;
 
 let AuthRouter = Router();
@@ -73,5 +74,21 @@ AuthRouter.post("/login", async (req, res) => {
     res.send({msg: "SomeThing Wents Wrong please Try Again", err});
   }
 });
+
+
+
+AuthRouter.get('/profile', Authenticate,async (req, res) => {
+  console.log(req.body)
+  try {
+    const user = await UserModel.findById( req.body.user_id);
+    res.json(user);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
+
+
 
 module.exports = {AuthRouter};

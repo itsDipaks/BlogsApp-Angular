@@ -7,7 +7,18 @@ let BlogRouter=Router()
 BlogRouter.get('/allblogs', async (req, res) => {
     try {
       const allBlogs = await BlogModel.find();
+      console.log(allBlogs)
       res.status(200).send({data:allBlogs});
+    } catch (err) {
+      console.error(err);
+      res.status(204).json({ message: 'Internal Server Error' });
+    }
+  });
+BlogRouter.get('/usersblogs',Authenticate, async (req, res) => {
+  let { user_id}=req.body
+    try {
+      const UsersBlogs = await BlogModel.find({author:user_id});
+      res.status(200).send({data:UsersBlogs});
     } catch (err) {
       console.error(err);
       res.status(500).json({ message: 'Internal Server Error' });
@@ -33,7 +44,7 @@ BlogRouter.get('/allblogs', async (req, res) => {
 })
 
 // GET a single blog by ID
-BlogRouter.get('/blogs/:id', async (req, res) => {
+BlogRouter.get('/selectedblog/:id', async (req, res) => {
     try {
       const blog = await BlogModel.findById(req.params.id);
       if (!blog) {
@@ -47,7 +58,9 @@ BlogRouter.get('/blogs/:id', async (req, res) => {
   });
   
   // UPDATE a blog by ID
-  BlogRouter.put('/blogs/:id', async (req, res) => {
+  BlogRouter.put('/updateblog/:id', Authenticate,async (req, res) => {
+console.log(req.params.id,"params edite")
+console.log(req.body)
     try {
       const updatedBlog = await BlogModel.findByIdAndUpdate(
         req.params.id,
@@ -65,7 +78,7 @@ BlogRouter.get('/blogs/:id', async (req, res) => {
   });
   
   // DELETE a blog by ID
-  BlogRouter.delete('/blogs/:id', async (req, res) => {
+  BlogRouter.delete('/deleteblog/:id', async (req, res) => {
     try {
       const deletedBlog = await BlogModel.findByIdAndRemove(req.params.id);
       if (!deletedBlog) {
