@@ -3,7 +3,7 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'app-display-error',
   template: `
-  <div class="container my-5">
+  <div class="container border  my-5" style="border-radius: 10px;">
     <div class="position-relative p-5 text-center text-muted bg-body   border-dashed rounded-5">
       <!-- <button type="button" class="position-absolute top-0 end-0 p-3 m-3 btn-close bg-secondary bg-opacity-10 rounded-pill" aria-label="Close"></button> -->
       <svg class="bi mt-5 mb-3" width="48" height="48"><use xlink:href="#check2-circle"/></svg>

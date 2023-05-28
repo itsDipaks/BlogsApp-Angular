@@ -1,11 +1,15 @@
 <section class="container">
 
-  <div>
 
-
-  </div>
 
     <div class="row g-4  " style="box-sizing: border-box; ">
+      <div *ngIf="loading" style="position: absolute;top: 40%; right: 0%;left: 0%;">
+        <div class="d-flex justify-content-center"  >
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      </div>
         <div class="col-md-8 col-lg-4   "  *ngFor="let val of UsersBlogs.data">
           <div class="blog-post card-effect">
             <div class="" style="  width:98%;margin:auto;padding: 5px;box-sizing: border-box;padding: 5px;">

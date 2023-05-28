@@ -10,22 +10,26 @@
       />
     </div>
   
-    <div class="content text-center p-4">
+    <div class="content   text-center p-4">
       <p class="text-secondary">{{blogdata?.createdAt |  date: ' d MMMM y'}}</p>
       <h1 class="p-2" style="width: 80%; margin: auto">
     {{blogdata?.title}}
       </h1>
       <hr />
-      <p class="p-4" style="width: 75%; margin: auto; text-align: start">
+      <div class="blog-img-item"> 
+        <img
+        class="blog-img"
+          src={{blogdata?.imageurl}}
+          alt={{blogdata?.content}}
+        />
+      </div>
+      <h6 class="text-primary pt-4  px-1" style="width: 70%; margin: auto;  text-align: start">
+          {{ blogdata?.Category | uppercase }}
+      </h6>
+      <p class="p-2" style="width: 70%; margin: auto; text-align: start">
         {{blogdata?.content}}
       </p>
-  <div class="blog-img-item"> 
-    <img
-    class="blog-img"
-      src={{blogdata?.imageurl}}
-      alt={{blogdata?.content}}
-    />
-  </div>
+
     </div>
   </div>
   

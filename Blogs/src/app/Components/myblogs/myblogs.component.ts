@@ -11,6 +11,7 @@ export class MyblogsComponent implements OnInit {
   error:string="Sorry No Users Blogs Are Present "
   redirectTo:string="/user-addblog"
   btnName:string="Add Blog "
+  loading:boolean=false
   constructor(private blog: BlogService) {
 
   }
@@ -22,13 +23,14 @@ export class MyblogsComponent implements OnInit {
     })
   }
 
-
-
   ngOnInit(): void {
     this.getmyblogs()
   }
 
   getmyblogs() {
-    this.blog.getusersBlog().subscribe(res => this.UsersBlogs = res)
+   this.loading=true
+    this.blog.getusersBlog().subscribe(res =>{ 
+      this.loading=false
+      return this.UsersBlogs = res})
   }
 }

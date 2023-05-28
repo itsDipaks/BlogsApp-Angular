@@ -17,18 +17,18 @@ height: 100%;
 .content{
     position: absolute;
     top: 5vh;
-    left: 9%;
+    left: 14%;
     min-height: 100vh;
     background-color: whitesmoke;
-    width: 80%;
+    width: 70%;
 }
 
 
 .blog-img-item{
-width: 80%;
+width: 68%;
 margin: auto;
 }
 .blog-img{
-width: 70%;
+width: 100%;
 margin: auto;
 }
