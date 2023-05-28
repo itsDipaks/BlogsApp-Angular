@@ -2,8 +2,25 @@
     color: rgb(246, 246, 246);
 }
 .nav-item .active{
-    color: rgb(62, 113, 223);
+    color:tomato;
+    font-weight: 600;
+    
 }
 .navbarbox{
-    background-color: rgb(168, 164, 164);
+    background-color: rgb(78, 78, 78);
+}
+.nav-item {
+    border: 1px solid gray;
+    margin: 5px;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+}
+.nav-item:hover{
+    transform: translateY(5px);
+}
+.applogo{
+    transition: all 0.3s ease-in-out;
+}
+.applogo:hover{
+    transform: translateY(5px);  
 }
