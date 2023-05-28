@@ -18,10 +18,35 @@ img {
 
 
 section {
-    padding-top: 120px;
-    padding-bottom: 120px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
+
+
+.selected {
+  color: tomato;
+  font-size: 1.1rem;
+  transform: translateY(5px);
+  transform: translateX(5px);
+
+}
+ .tags{
+  transition: all 0.3s ease-in-out;
+  padding: 0px  10px  ;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 10%;
+ }
+
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
 
 .featuredpostimg{
@@ -42,7 +67,7 @@ width: 100%;
 
 
 .card-effect {
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
     padding: 25px;
     transition: all 0.35s ease;
 }
@@ -50,6 +75,7 @@ width: 100%;
 .card-effect:hover {
     box-shadow: none;
     transform: translateY(5px);
+      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
  

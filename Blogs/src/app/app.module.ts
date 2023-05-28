@@ -22,6 +22,7 @@ import { FooterComponent } from './Components/footer/footer.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { DisplayErrorComponent } from './SmallComponents/display-error.component';
 import { AboutComponent } from './Components/about/about.component';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { AboutComponent } from './Components/about/about.component';
     EditBlogComponent,
     FooterComponent,
     DisplayErrorComponent,
-    AboutComponent
+    AboutComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,

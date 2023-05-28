@@ -7,8 +7,10 @@ import { Component } from '@angular/core';
   styles:[`
   
   .routes{
-    margin-top: 80px;
     min-height:80vh;
+}
+.navcomponent{
+  margin-bottom:80px;
 }
   `]
 })

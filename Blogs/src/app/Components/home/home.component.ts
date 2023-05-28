@@ -8,10 +8,13 @@ import { BlogService } from 'src/app/Services/blog.service';
 })
 export class HomeComponent implements OnInit {
   blogs: any = [];
+  selectedTag: string = 'All';
 
+  setSelectedTag(tag: string): void {
+    this.selectedTag = tag;
+  }
 
   constructor(private blog: BlogService) {
-    console.log(this.blogs)
   }
 
   ngOnInit() {

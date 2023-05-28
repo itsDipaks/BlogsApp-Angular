@@ -1,77 +1,109 @@
 <!-- Using Reactive form method  -->
-<div class="container-sm p-8" style="width: 45%">
-  <main class="form-signin m-auto">
-    <form [formGroup]="SignupData" (ngSubmit)="submitSignupData()">
-      <img
-        class="mb-4 mt-5"
-        src="https://cdn-icons-png.flaticon.com/128/7141/7141726.png"
-        alt=""
-        width="72"
-        height="77"
-      />
-      <h1 class="h3 mb-3 fw-normal">Please Signup</h1>
 
-      <div class="form-floating">
-        <input
-          formControlName="name"
-          type="text"
-          class="form-control"
-          placeholder="Name"
-        />
-        <label for="floatingInput">Name</label>
-        <div
-          *ngIf="
-            SignupData.get('name').invalid && SignupData.get('name').touched
-          "
-          class="form-text val"
-        >
-          Please Enter Name
+<div
+  class="d-flex justify-content-between border bg-light"
+  style="
+    width: 70%;
+    margin: auto;
+    align-items: center;
+    border-top-right-radius: 10%;
+    border-bottom-right-radius: 10%;
+    justify-content: space-between;
+  "
+>
+  <div class="container-sm p-4" style="width: 45%">
+    <main class="form-signin m-auto">
+      <form [formGroup]="SignupData" (ngSubmit)="submitSignupData()">
+        <h1 class="h3 mb-3 fw-normal text-center ">Create Account</h1>
+        <div class="text-center">
+          <fa-icon class="fa-3x" [icon]="faUnlock"></fa-icon>
         </div>
-      </div>
-      <br />
-      <div class="form-floating">
-        <input
-          formControlName="email"
-          type="email"
-          class="form-control"
-          placeholder="myemail@gamail.com"
-        />
-        <label for="floatingInput">Email address</label>
-        <div
-          *ngIf="
-            SignupData.get('email').invalid && SignupData.get('email').touched
-          "
-          class="form-text val"
-        >
-          Please Enter Email
+        <div class="form-floating">
+          <input
+            formControlName="name"
+            type="text"
+            class="form-control"
+            placeholder="Name"
+          />
+          <label for="floatingInput">Name</label>
+          <div
+            *ngIf="
+              SignupData.get('name').invalid && SignupData.get('name').touched
+            "
+            class="form-text val"
+          >
+            Please Enter Name
+          </div>
         </div>
-      </div>
-      <br />
-      <div class="form-floating">
-        <input
-          type="password"
-          formControlName="password"
-          class="form-control"
-          placeholder="Password"
-        />
-        <label for="floatingPassword">Password</label>
-        <div
-          *ngIf="
-            SignupData.get('password').invalid &&
-            SignupData.get('password').touched
-          "
-          class="form-text val"
-        >
-          Please Enter Password
+        <br />
+        <div class="form-floating">
+          <input
+            formControlName="email"
+            type="email"
+            class="form-control"
+            placeholder="myemail@gamail.com"
+          />
+          <label for="floatingInput">Email address</label>
+          <div
+            *ngIf="
+              SignupData.get('email').invalid && SignupData.get('email').touched
+            "
+            class="form-text val"
+          >
+            Please Enter Email
+          </div>
         </div>
-      </div>
-      <br />
-      <button
-        class="w-50 btn btn-lg btn-primary"
-        [disabled]="SignupData.invalid"
-      >
-        Sign in
-      </button>
-    </form>
-  </main>
+        <br />
+        <div class="form-floating">
+          <input
+            type="password"
+            formControlName="password"
+            class="form-control"
+            placeholder="Password"
+          />
+          <label for="floatingPassword">Password</label>
+          <div
+            *ngIf="
+              SignupData.get('password').invalid &&
+              SignupData.get('password').touched
+            "
+            class="form-text val"
+          >
+            Please Enter Password
+          </div>
+        </div>
+        <br />
+        <p class="text-end text-secondary">
+          Don't have an account ? <a routerLink="../login"> LogIn...</a>
+        </p>
+        <button
+          class="w-50 btn btn-lg btn-primary"
+          [disabled]="SignupData.invalid || loading"
+        >
+          <span
+            *ngIf="loading"
+            class="spinner-grow spinner-grow-sm"
+            role="status"
+            aria-hidden="true"
+          ></span
+          ><span *ngIf="!loading">SignUp</span>
+        </button>
+      </form>
+    </main>
+  </div>
+
+  <div class="" style="width: 50%; position: relative">
+    <img
+      src="../../../assets//signinimg.png"
+      style="
+        width: 100%;
+        border-top-right-radius: 10%;
+        border-bottom-right-radius: 10%;
+      "
+      alt="signup"
+    />
+    <h1 style="position: absolute; top: 40%; color: whitesmoke; left: 10%">
+      Welcome to BlogiFiy
+    </h1>
+  </div>
 </div>

@@ -1,23 +1,24 @@
-<header class="site-header   py-1">
-  <nav class="container d-flex flex-column flex-md-row justify-content-between">
-    <a class="py-2 d-none d-md-inline-block" href="#">All</a>
-    <a class="py-2 d-none d-md-inline-block" href="#">AutoMobile</a>
-    <a class="py-2 d-none d-md-inline-block" href="#">Academic</a>
-    <a class="py-2 d-none d-md-inline-block" href="#">Global</a>
-    <a class="py-2 d-none d-md-inline-block" href="#">GeoPolytics</a>
-    <a class="py-2 d-none d-md-inline-block" href="#">Health</a>
-    <a class="py-2 d-none d-md-inline-block" href="#">Technology</a>
-    <a class="py-2 d-none d-md-inline-block" href="#">Nature</a>
-    <a class="py-2 d-none d-md-inline-block" href="#">News</a>
-  </nav>
-</header>
-<section id="" class="bg-light">
- 
-  <div class="container">
+
+<section id="" class=" m-4 p-4"  >
+  <header class="    py-1">
+    <nav class="container d-flex flex-row justify-content-between">
+      <p class="py-2  tags   d-none d-md-inline-block" [ngClass]="{'selected': selectedTag === 'All'}" [class.transition]="selectedTag" [class.animate]="selectedTag" style="cursor: pointer;" (click)="setSelectedTag('All')">All</p>
+      <p class="py-2 tags   d-none d-md-inline-block" [ngClass]="{'selected': selectedTag === 'AutoMobile'}"   [class.transition]="selectedTag" [class.animate]="selectedTag"  style="cursor: pointer;" (click)="setSelectedTag('AutoMobile')">AutoMobile</p>
+      <p class="py-2  tags  d-none d-md-inline-block" [ngClass]="{'selected': selectedTag === 'Academic'}"  [class.transition]="selectedTag" [class.animate]="selectedTag"  style="cursor: pointer;" (click)="setSelectedTag('Academic')">Academic</p>
+      <p class="py-2  tags  d-none d-md-inline-block" [ngClass]="{'selected': selectedTag === 'Global'}"  [class.transition]="selectedTag" [class.animate]="selectedTag"  style="cursor: pointer;" (click)="setSelectedTag('Global')">Global</p>
+      <p class="py-2  tags  d-none d-md-inline-block" [ngClass]="{'selected': selectedTag === 'GeoPolytics'}"  [class.transition]="selectedTag" [class.animate]="selectedTag"  style="cursor: pointer;" (click)="setSelectedTag('GeoPolytics')">GeoPolytics</p>
+      <p class="py-2  tags  d-none d-md-inline-block" [ngClass]="{'selected': selectedTag === 'Health'}"  [class.transition]="selectedTag" [class.animate]="selectedTag"  style="cursor: pointer;" (click)="setSelectedTag('Health')">Health</p>
+      <p class="py-2  tags  d-none d-md-inline-block" [ngClass]="{'selected': selectedTag === 'Technology'}"  [class.transition]="selectedTag" [class.animate]="selectedTag"  style="cursor: pointer;" (click)="setSelectedTag('Technology')">Technology</p>
+      <p class="py-2 tags   d-none d-md-inline-block" [ngClass]="{'selected': selectedTag === 'Nature'}"  [class.transition]="selectedTag" [class.animate]="selectedTag"  style="cursor: pointer;" (click)="setSelectedTag('Nature')">Nature</p>
+      <p class="py-2 tags   d-none d-md-inline-block" [ngClass]="{'selected': selectedTag === 'News'}"   [class.transition]="selectedTag" [class.animate]="selectedTag" style="cursor: pointer;" (click)="setSelectedTag('News')">News</p>
+    </nav>
+
+  </header>
+  <div class="container mt-4">
     <div class="row mb-5">
-      <div class="col-md-8 mx-auto text-center">
+      <div class="col-md-8 mx-auto text-center"  *ngIf="selectedTag">
         <h6 class="text-primary">BLOG</h6>
-        <h1>Latest News From The Blog</h1>
+        <h1>Latest Blogs From {{selectedTag}} Sector</h1>
         <p>
           Lorem ipsum dolor sit amet consectetur nisi necessitatibus repellat
           distinctio eveniet eaque fuga in cumque optio consectetur harum vitae
@@ -25,10 +26,11 @@
         </p>
       </div>
     </div>
-
+ 
     <div class="row g-8">
-      <div class="col-md-8 col-lg-4" *ngFor="let val of blogs.data">
-        <div class="blog-post card-effect">
+      <div class="col-md-8 col-lg-4" *ngFor="let val of blogs?.data | filter:selectedTag">
+    
+        <div class="blog-post card-effect bg-light">
           <div class="" style="height: 250px">
             <img
               src={{val?.imageurl}} 
