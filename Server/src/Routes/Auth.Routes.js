@@ -15,14 +15,14 @@ AuthRouter.post("/signup", async (req, res) => {
   let isexist = await UserModel.findOne({email});
   if (isexist) {
     res
-      .status(400)
+      .status(201)
       .send({msg: "User Already Exist With this Email Plase Login !!"});
   } else {
     const {name, email, password} = req.body;
 
     bcrypt.hash(password, 4, async function (err, hashedpassword) {
       if (err) {
-        res.status(401).send({msg: "Something wents wrong ", err: err});
+        res.status(201).send({msg: "Something wents wrong ", err: err});
       } else {
         try {
           let newEmployee = new UserModel({
@@ -34,7 +34,7 @@ AuthRouter.post("/signup", async (req, res) => {
           res.status(200).send({msg: "Signup Sucessfully", data: newEmployee});
         } catch (err) {
           res
-            .status(401)
+            .status(201)
             .send({msg: "something wents wrong to uploading the data", err});
         }
       }

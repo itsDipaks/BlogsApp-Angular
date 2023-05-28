@@ -1,5 +1,9 @@
 <section class="container">
 
+  <div>
+
+
+  </div>
 
     <div class="row g-4  " style="box-sizing: border-box; ">
         <div class="col-md-8 col-lg-4   "  *ngFor="let val of UsersBlogs.data">
@@ -27,6 +31,6 @@
         </div>
       </div>
       <div *ngIf="UsersBlogs.data.length<1">
-        <app-display-error [displayerror]="error"></app-display-error>
+        <app-display-error [displayerror]="error" [redirectTo]="redirectTo"  [btnName]="btnName" ></app-display-error>
       </div>
 </section>

@@ -13,12 +13,16 @@ export class NavbarComponent implements OnInit {
 
   }
   menuType: String = "default"
+  hidenav:boolean=false
   ngOnInit(): void {
     this.router.events.subscribe((res: any) => {
       if (res.url) {
         if (localStorage.getItem("token") && res.url.includes("user")) {
           this.menuType = "user"
-        } else {
+        } else if(res.url.includes("login") || res.url.includes("signup")) {
+          this.menuType = "default"
+          this.hidenav=true
+        }else{
           this.menuType = "default"
         }
       }

@@ -21,12 +21,16 @@ export class SignupComponent {
 
     this.loading = true
 
-    this.Use.signup(this.SignupData.value).subscribe(res => {
-      if (res) {
+    this.Use.signup(this.SignupData.value).subscribe((res:any) => {
+      if (res.msg=="User Already Exist With this Email Plase Login !!") {
         this.loading = false
-        alert("Singup Sucessfully")
-        this.router.navigateByUrl('login');
+        alert(res.msg)
+      
         
+      }else{
+        this.loading=false
+        alert("Signup Sucessfully ")
+        this.router.navigateByUrl('login');
       }
     }
     )

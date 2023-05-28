@@ -9,7 +9,7 @@ import { BlogService } from 'src/app/Services/blog.service';
 export class HomeComponent implements OnInit {
   blogs: any = [];
   selectedTag: string = 'All';
-
+  error:string="No Blogs are present "
   setSelectedTag(tag: string): void {
     this.selectedTag = tag;
   }

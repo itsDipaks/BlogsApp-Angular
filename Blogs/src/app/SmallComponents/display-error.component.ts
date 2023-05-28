@@ -11,8 +11,8 @@ import { Component, Input } from '@angular/core';
       <p class="col-lg-6 mx-auto mb-4">
       Please Add New Blog
       </p>
-      <button class="btn btn-primary px-5 mb-5" type="button">
-        Call to action
+      <button class="btn btn-primary px-5 mb-5" routerLink={{redirectTo}} type="button">
+   {{btnName}}
       </button>
     </div>
   </div>
@@ -22,5 +22,8 @@ import { Component, Input } from '@angular/core';
 })
 export class DisplayErrorComponent {
   @Input() displayerror: string="";
+  @Input() redirectTo: string="";
+  @Input() btnName: string="";
+ 
 }
 

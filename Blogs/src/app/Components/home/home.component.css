@@ -36,9 +36,14 @@ section {
   padding: 0px  10px  ;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-radius: 10%;
+  font-weight: 500;
  }
 
-
+.tags:hover{
+  box-shadow: none;
+  transform: translateY(5px);
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
 @keyframes fadeIn {
   0% {
     opacity: 0;

@@ -1,6 +1,9 @@
 .nav-link{
-    color: rgb(8, 8, 8);
+    color: rgb(246, 246, 246);
 }
 .nav-item .active{
     color: rgb(228, 0, 0);
+}
+.navbarbox{
+    background-color: rgb(26, 24, 24);
 }

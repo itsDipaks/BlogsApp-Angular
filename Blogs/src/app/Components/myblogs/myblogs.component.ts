@@ -8,7 +8,9 @@ import { BlogService } from 'src/app/Services/blog.service';
 })
 export class MyblogsComponent implements OnInit {
   UsersBlogs: any = []
-  error:string="No Users Blogs "
+  error:string="Sorry No Users Blogs Are Present "
+  redirectTo:string="/user-addblog"
+  btnName:string="Add Blog "
   constructor(private blog: BlogService) {
 
   }
