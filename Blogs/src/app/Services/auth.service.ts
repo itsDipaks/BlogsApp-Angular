@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
   providedIn: 'root'
 })
 export class AuthService {
-  url: string = "http://localhost:8100/auth/";
+  url: string = "https://blogifiy-86v6.onrender.com/auth/";
   constructor(private router: Router, private http: HttpClient) { }
 
 

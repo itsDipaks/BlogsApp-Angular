@@ -7,7 +7,7 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class BlogService {
-  url: string = "http://localhost:8100/blog/";
+  url: string = "https://blogifiy-86v6.onrender.com/blog/";
   constructor(private http: HttpClient, private router: Router, private use: AuthService) {
   }
   //  -----Add New Blog ----
