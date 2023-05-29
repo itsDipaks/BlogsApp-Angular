@@ -1,7 +1,6 @@
-<section id="blog" class="  "> 
+<section id="blog" class="">
 
-
-  <div class="details-page " >
+  <div class="details-page">
     <div class="b-item">
       <img
         class="b-img"
@@ -9,22 +8,18 @@
         alt="blog image"
       />
     </div>
-  
-    <div class="content   text-center p-4">
-      <p class="text-secondary">{{blogdata?.createdAt |  date: ' d MMMM y'}}</p>
+
+    <div class="content text-center p-4">
+      <p class="text-secondary">{{blogdata?.createdAt | date: 'd MMMM y'}}</p>
       <h1 class="p-2" style="width: 80%; margin: auto">
-    {{blogdata?.title}}
+        {{blogdata?.title}}
       </h1>
       <hr />
-      <div class="blog-img-item"> 
-        <img
-        class="blog-img"
-          src={{blogdata?.imageurl}}
-          alt={{blogdata?.content}}
-        />
+      <div class="blog-img-item">
+        <img class="blog-img" src={{blogdata?.imageurl}} alt={{blogdata?.content}} />
       </div>
-      <h6 class="text-primary pt-4  px-1" style="width: 70%; margin: auto;  text-align: start">
-          {{ blogdata?.Category | uppercase }}
+      <h6 class="text-primary pt-4 px-1" style="width: 70%; margin: auto; text-align: start">
+        {{blogdata?.Category | uppercase}}
       </h6>
       <p class="p-2" style="width: 70%; margin: auto; text-align: start">
         {{blogdata?.content}}
@@ -32,6 +27,5 @@
 
     </div>
   </div>
-  
 
 </section>

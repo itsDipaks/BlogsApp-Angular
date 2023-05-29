@@ -23,6 +23,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { DisplayErrorComponent } from './SmallComponents/display-error.component';
 import { AboutComponent } from './Components/about/about.component';
 import { FilterPipe } from './pipes/filter.pipe';
+import { TostComponent } from './SmallComponents/tost/tost.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { FilterPipe } from './pipes/filter.pipe';
     DisplayErrorComponent,
     AboutComponent,
     FilterPipe,
+    TostComponent,
   ],
   imports: [
     BrowserModule,
