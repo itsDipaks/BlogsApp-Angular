@@ -5,6 +5,9 @@ const cors=require("cors");
 const { BlogRouter } = require("./src/Routes/Blogs.Routes");
 const app = express();
 app.use(cors())
+app.get("/",(req,res)=>{
+  res.send("This Is Blogifiy App Server")
+})
 app.use(express.json());
 app.use("/auth", AuthRouter);
 app.use("/blog", BlogRouter);
