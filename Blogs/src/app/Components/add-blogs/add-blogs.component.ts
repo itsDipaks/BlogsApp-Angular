@@ -19,6 +19,7 @@ SubmitBlogData(){
   this.blog.addblog(this.BlogData.value).subscribe(res=>{
 if(res){
   alert("Added")
+  this.BlogData.reset();
 }else{
   alert("not added")
 }

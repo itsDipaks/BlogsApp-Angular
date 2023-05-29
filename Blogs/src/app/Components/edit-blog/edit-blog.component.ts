@@ -40,6 +40,7 @@ ngOnInit(): void {
     this.blog.updateBlog(id ,this.UpdatedBlogData.value).subscribe(res=>{
       if(res){
         alert("updated")
+        this.UpdatedBlogData.reset();
       }else{
         alert("not updated")
       }

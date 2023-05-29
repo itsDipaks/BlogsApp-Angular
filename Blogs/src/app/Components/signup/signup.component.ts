@@ -30,6 +30,7 @@ export class SignupComponent {
       }else{
         this.loading=false
         alert("Signup Sucessfully ")
+       
         this.router.navigateByUrl('login');
       }
     }
