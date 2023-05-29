@@ -14,7 +14,6 @@ app.use("/blog", BlogRouter);
 
 app.listen(8100, async () => {
   try {
-    
     console.log("server Started On htto://localhost:8100");
     await Connection;
     console.log("Connected To DB");
