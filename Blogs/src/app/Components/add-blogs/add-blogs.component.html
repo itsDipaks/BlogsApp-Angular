@@ -1,8 +1,8 @@
-<section id="blog" class="container " >
+<section id="blog" class="container">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-6 p-4   mt-2">
-        <h3 class="p-2 text-center ">ADD BLOG POST</h3>
+      <div class="col-md-6 p-4 mt-2">
+        <h3 class="p-2 text-center text-primary">ADD BLOG POST</h3>
         <form [formGroup]="BlogData" (ngSubmit)="SubmitBlogData()">
           <div class="form-floating">
             <input
@@ -14,7 +14,9 @@
             />
             <label for="floatingPassword">Blog Title</label>
             <div
-              *ngIf="BlogData.get('title').invalid && BlogData.get('title').touched"
+              *ngIf="
+                BlogData.get('title').invalid && BlogData.get('title').touched
+              "
               class="form-text val"
             >
               Title is Missing
@@ -31,7 +33,10 @@
             ></textarea>
             <label for="floatingTextarea2">Content</label>
             <div
-              *ngIf="BlogData.get('content').invalid && BlogData.get('content').touched"
+              *ngIf="
+                BlogData.get('content').invalid &&
+                BlogData.get('content').touched
+              "
               class="form-text val"
             >
               Blog Content is Missing
@@ -48,7 +53,10 @@
             />
             <label for="floatingPassword">Image Url</label>
             <div
-              *ngIf="BlogData.get('imageurl').invalid && BlogData.get('imageurl').touched"
+              *ngIf="
+                BlogData.get('imageurl').invalid &&
+                BlogData.get('imageurl').touched
+              "
               class="form-text val"
             >
               Image url is Missing
@@ -75,7 +83,10 @@
             <option value="News">News</option>
           </select>
           <div
-            *ngIf="BlogData.get('Category').invalid && BlogData.get('Category').touched"
+            *ngIf="
+              BlogData.get('Category').invalid &&
+              BlogData.get('Category').touched
+            "
             class="form-text val"
           >
             Category is Missing
@@ -96,22 +107,21 @@
         </form>
       </div>
 
-      <div class="col-md-6 pt-4 mt-4 ">
-        <!-- <h4 class="text-center p-2 text-primary">LIVE PREVIEW</h4> -->
+      <div class="col-md-6 pt-4 mt-4">
         <div class="border bg-body-tertiary p-2">
           <p class="text-secondary text-center">31 May 2023</p>
           <h2 class="text-center">{{ BlogData.title }}</h2>
 
-          <section class="post-content mt-4" style="min-height: 100vh;">
+          <section class="post-content mt-4" style="min-height: 100vh">
             <div class="container">
               <div class="row">
-                <div class="col-md-6" style=" width: 90%;margin: auto;">
-                  <div class="border" style="min-height: 40vh;width: 100%;">
+                <div class="col-md-6" style="width: 90%; margin: auto">
+                  <div class="border" style="min-height: 40vh; width: 100%">
                     <img
                       src="{{ BlogData.imageurl }}"
                       alt="{{ BlogData.imageurl }}"
-                      class="  w-100"
-                      style="width:100%"
+                      class="w-100"
+                      style="width: 100%"
                     />
                   </div>
                 </div>
