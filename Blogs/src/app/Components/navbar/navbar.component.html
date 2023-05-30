@@ -1,94 +1,99 @@
-<header class="fixed-top navbarbox mb-4 top-0"  >
-  <div class="px-2 py-2">
-    <div class="container">
-      <div
-        class="d-flex flex-wrap  align-items-center justify-content-center justify-content-lg-start"
-      >
-        <img
-          style="cursor: pointer"
-          routerLink=""
-          src="https://cdn-icons-png.flaticon.com/128/9814/9814634.png"
-          [width]="50"
-          alt="applogo"
-          class="applogo"
-        />
+
+
+
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark" aria-label="Third navbar example">
+  <div class="container-fluid d-flex justify-content-between gap-3">
+    <div class="d-flex align-items-center w-50">
+      <img
+      style="cursor: pointer"
+      routerLink=""
+      src="https://cdn-icons-png.flaticon.com/128/9814/9814634.png"
+      [width]="50"
+      alt="applogo"
+      class="applogo"
+    />
+    <a
+      routerLink=""
+      class="d-flex applogo align-items-start my-2 my-lg-0 me-lg-auto text-light fw-bold  text-decoration-none"
+    >
+      BlogiFiy
+    </a>
+    </div>
+   
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div [ngSwitch]="menuType"  class="collapse navbar-collapse text-center w-50 " id="navbarsExample03">
+      <ul   *ngSwitchCase="'default'"  class=" navbar-nav me-auto d-flex w-100 justify-content-evenly b-2 mb-sm-0 ">
+        <li class="nav-item">
+          <a routerLinkActive="active" routerLink="/" class="nav-link">
+            Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLinkActive="active" routerLink="about" class="nav-link">
+            About 
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            routerLinkActive="active"
+            routerLink="user-blogs"
+            class="nav-link"
+          >
+            UserPanel
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="login" routerLinkActive="active" class="nav-link">
+            Login
+          </a>
+        </li>
+    
+      </ul>
+
+
+      <ul
+      *ngSwitchCase="'user'"
+      class=" navbar-nav me-auto d-flex w-100 justify-content-evenly b-2 mb-sm-0 ">
+    >
+      <li class="nav-item">
         <a
-          routerLink=""
-          class="d-flex applogo align-items-start my-2 my-lg-0 me-lg-auto text-light fw-bold  text-decoration-none"
+          routerLinkActive="active"
+          routerLink="user-blogs"
+          class="nav-link"
         >
-          BlogiFiy
+          My Blogs
         </a>
-        <!-- <div  class="collapse navbar-collapse" id="navbarResponsive"> -->
-        <div [ngSwitch]="menuType">
-          <ul
-            *ngSwitchCase="'default'"
-            class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small"
-          >
-            <li class="nav-item">
-              <a routerLinkActive="active" routerLink="/" class="nav-link">
-                Home
-              </a>
-            </li>
-            <li class="nav-item">
-              <a routerLinkActive="active" routerLink="about" class="nav-link">
-                About
-              </a>
-            </li>
-            <li class="nav-item">
-              <a
-                routerLinkActive="active"
-                routerLink="user-blogs"
-                class="nav-link"
-              >
-                UserPanel
-              </a>
-            </li>
-            <li class="nav-item">
-              <a routerLink="login" routerLinkActive="active" class="nav-link">
-                Login
-              </a>
-            </li>
-          </ul>
-          <ul
-            *ngSwitchCase="'user'"
-            class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small"
-          >
-            <li class="nav-item">
-              <a
-                routerLinkActive="active"
-                routerLink="user-blogs"
-                class="nav-link"
-              >
-                My Blogs
-              </a>
-            </li>
-            <li class="nav-item">
-              <a
-                routerLinkActive="active"
-                routerLink="user-addblog"
-                class="nav-link"
-              >
-                Add Blog
-              </a>
-            </li>
-            <li class="nav-item">
-              <a
-                routerLinkActive="active"
-                routerLink="user-profile"
-                class="nav-link"
-              >
-                Profile
-              </a>
-            </li>
-            <li class="nav-item">
-              <button (click)="logoutme()" class="btn btn-danger">
-                Logout
-              </button>
-            </li>
-          </ul>
-        </div>
-        <!-- </div> -->
-      </div>
+      </li>
+      <li class="nav-item">
+        <a
+          routerLinkActive="active"
+          routerLink="user-addblog"
+          class="nav-link"
+        >
+          Add Blog
+        </a>
+      </li>
+      <li class="nav-item">
+        <a
+          routerLinkActive="active"
+          routerLink="user-profile"
+          class="nav-link"
+        >
+          Profile
+        </a>
+      </li>
+      <li class="nav-item">
+        <button (click)="logoutme()" class="btn btn-danger">
+          Logout
+        </button>
+      </li>
+    </ul>
+    
+    
     </div>
   </div>
-</header>
+</nav>
+
