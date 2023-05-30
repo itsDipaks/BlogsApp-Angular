@@ -1,145 +1,134 @@
-<section id="blog">
-  <div
-    class="container d-flex flex-column flex-md-row justify-content-between mt-4 pt-4"
-    style="width: 95%"
-  >
-    <div class="p-4 mx-2 border mt-4" style="width: 45%">
-      <h3 class="p-2">Add New Blog</h3>
-      <form [formGroup]="BlogData" (ngSubmit)="SubmitBlogData()">
-        <div class="form-floating">
-          <input
-            [(ngModel)]="BlogData.title"
-            type="text"
-            class="form-control"
-            placeholder="Title"
-            formControlName="title"
-          />
-          <label for="floatingPassword">Blog Title</label>
-          <div
-            *ngIf="
-              BlogData.get('title').invalid && BlogData.get('title').touched
-            "
-            class="form-text val"
-          >
-            Title is Missing
-          </div>
-        </div>
-        <br />
-        <div class="form-floating">
-          <textarea
-            class="form-control"
-            placeholder="Leave a comment here"
-            style="height: 100px"
-            [(ngModel)]="BlogData.content"
-            formControlName="content"
-          ></textarea>
-          <label for="floatingTextarea2">Content</label>
-          <div
-            *ngIf="
-              BlogData.get('content').invalid && BlogData.get('content').touched
-            "
-            class="form-text val"
-          >
-            Blog Content is Missing
-          </div>
-        </div>
-        <br />
-        <div class="form-floating">
-          <input
-            type="text"
-            class="form-control"
-            formControlName="imageurl"
-            [(ngModel)]="BlogData.imageurl"
-            placeholder="Image Url"
-          />
-          <label for="floatingPassword">Image Url </label>
-          <div
-            *ngIf="
-              BlogData.get('imageurl').invalid &&
-              BlogData.get('imageurl').touched
-            "
-            class="form-text val"
-          >
-            Image url is Missing
-          </div>
-        </div>
-        <br />
-        <label class="m-1" for="selectcategory">Select Category</label>
-        <select
-          class="form-select"
-          aria-label=".form-select-lg example"
-          style="height: 50px"
-          formControlName="Category"
-          placeholder="Select Blog Category"
-          name="selectcategory"
-          [(ngModel)]="BlogData.Category"
-        >
-          <option value="AutoMobile">AutoMobile</option>
-          <option value="Academic">Academic</option>
-          <option value="Global">Global</option>
-          <option value="GeoPolytics">GeoPolytics</option>
-          <option value="Health">Health</option>
-          <option value="Technology">Technology</option>
-          <option value="Nature">Nature</option>
-          <option value="News">News</option>
-        </select>
-        <div
-          *ngIf="
-            BlogData.get('Category').invalid && BlogData.get('Category').touched
-          "
-          class="form-text val"
-        >
-          Category is Missing
-        </div>
-        <br />
-        <button
-          [disabled]="BlogData.invalid || loading"
-          class="btn w-50 btn-primary"
-        >
-          <span
-            *ngIf="loading"
-            class="spinner-grow spinner-grow-sm"
-            role="status"
-            aria-hidden="true"
-          ></span>
-          <span *ngIf="!loading">Submit</span>
-        </button>
-      </form>
-    </div>
-
-    <div class="p-2" style="width: 55%">
-      <h4 class="text-center p-2 text-primary">LIVE PRIVEW</h4>
-      <div
-        class="border container bg-body-tertiary p-2"
-        style="min-height: 80vh"
-      >
-        <p class="text-secondary text-center">1 February 2019</p>
-        <h2 class="text-center">{{ BlogData.title }}</h2>
-
-        <section class="post-content w-80 mt-4">
-          <div>
+<section id="blog" class="container " >
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6 p-4   mt-2">
+        <h3 class="p-2 text-center ">ADD BLOG POST</h3>
+        <form [formGroup]="BlogData" (ngSubmit)="SubmitBlogData()">
+          <div class="form-floating">
+            <input
+              [(ngModel)]="BlogData.title"
+              type="text"
+              class="form-control"
+              placeholder="Title"
+              formControlName="title"
+            />
+            <label for="floatingPassword">Blog Title</label>
             <div
-              class="border"
-              style="min-height: 40vh; max-width: 90%; margin: auto"
+              *ngIf="BlogData.get('title').invalid && BlogData.get('title').touched"
+              class="form-text val"
             >
-              <img
-                src="{{ BlogData.imageurl }}"
-                alt="{{ BlogData.imageurl }}"
-                class="img-fluid"
-              />
-            </div>
-            <div class="px-4 pt-4 mx-1" style="min-height: 2vh">
-              <h6 class="text-primary">
-                {{ BlogData.Category | uppercase }}
-              </h6>
-            </div>
-            <div class="mx-2 px-4 ">
-              <p>
-                {{ BlogData.content }}
-              </p>
+              Title is Missing
             </div>
           </div>
-        </section>
+          <br />
+          <div class="form-floating">
+            <textarea
+              class="form-control"
+              placeholder="Leave a comment here"
+              style="height: 100px"
+              [(ngModel)]="BlogData.content"
+              formControlName="content"
+            ></textarea>
+            <label for="floatingTextarea2">Content</label>
+            <div
+              *ngIf="BlogData.get('content').invalid && BlogData.get('content').touched"
+              class="form-text val"
+            >
+              Blog Content is Missing
+            </div>
+          </div>
+          <br />
+          <div class="form-floating">
+            <input
+              type="text"
+              class="form-control"
+              formControlName="imageurl"
+              [(ngModel)]="BlogData.imageurl"
+              placeholder="Image Url"
+            />
+            <label for="floatingPassword">Image Url</label>
+            <div
+              *ngIf="BlogData.get('imageurl').invalid && BlogData.get('imageurl').touched"
+              class="form-text val"
+            >
+              Image url is Missing
+            </div>
+          </div>
+          <br />
+          <label class="m-1" for="selectcategory">Select Category</label>
+          <select
+            class="form-select"
+            aria-label=".form-select-lg example"
+            style="height: 50px"
+            formControlName="Category"
+            placeholder="Select Blog Category"
+            name="selectcategory"
+            [(ngModel)]="BlogData.Category"
+          >
+            <option value="AutoMobile">AutoMobile</option>
+            <option value="Academic">Academic</option>
+            <option value="Global">Global</option>
+            <option value="GeoPolytics">GeoPolytics</option>
+            <option value="Health">Health</option>
+            <option value="Technology">Technology</option>
+            <option value="Nature">Nature</option>
+            <option value="News">News</option>
+          </select>
+          <div
+            *ngIf="BlogData.get('Category').invalid && BlogData.get('Category').touched"
+            class="form-text val"
+          >
+            Category is Missing
+          </div>
+          <br />
+          <button
+            [disabled]="BlogData.invalid || loading"
+            class="btn w-100 btn-primary"
+          >
+            <span
+              *ngIf="loading"
+              class="spinner-grow spinner-grow-sm"
+              role="status"
+              aria-hidden="true"
+            ></span>
+            <span *ngIf="!loading">Submit</span>
+          </button>
+        </form>
+      </div>
+
+      <div class="col-md-6 pt-4 mt-4 ">
+        <!-- <h4 class="text-center p-2 text-primary">LIVE PREVIEW</h4> -->
+        <div class="border bg-body-tertiary p-2">
+          <p class="text-secondary text-center">31 May 2023</p>
+          <h2 class="text-center">{{ BlogData.title }}</h2>
+
+          <section class="post-content mt-4" style="min-height: 100vh;">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-6" style=" width: 90%;margin: auto;">
+                  <div class="border" style="min-height: 40vh;width: 100%;">
+                    <img
+                      src="{{ BlogData.imageurl }}"
+                      alt="{{ BlogData.imageurl }}"
+                      class="  w-100"
+                      style="width:100%"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="px-4 pt-4">
+                    <h6 class="text-primary">
+                      {{ BlogData.Category | uppercase }}
+                    </h6>
+                  </div>
+                  <div class="mx-2 px-4">
+                    <p>{{ BlogData.content }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
       </div>
     </div>
   </div>
