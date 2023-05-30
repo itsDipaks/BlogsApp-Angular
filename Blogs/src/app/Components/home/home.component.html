@@ -26,7 +26,6 @@
       <div class="col-md-8 mx-auto text-center"  *ngIf="selectedTag">
         <h6 class="text-primary">BLOG</h6>
         <h2>Latest Blogs From {{selectedTag}} Sector</h2>
-       
       </div>
     </div>
  
@@ -35,7 +34,6 @@
         <app-display-error *ngIf="blogs?.data.length<1" [displayerror]="error" ></app-display-error>
       </div>
       <div class="col-md-8 col-lg-4" *ngFor="let val of blogs?.data | filter:selectedTag">
-    
        
         <div class="blog-post card-effect bg-light">
           <div class="" style="height: 250px">

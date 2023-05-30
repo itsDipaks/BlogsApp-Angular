@@ -1,100 +1,96 @@
-<div class="container-sm  bg-light">
-  
-        <div class="p-4  w-50 m-auto     mt-4  ">
-            <h3 class="p-2">Update Blog</h3>
-            <form [formGroup]="UpdatedBlogData" (ngSubmit)="UpdateBlog()">
-              <div class="form-floating">
-                <input
-                  [(ngModel)]="UpdatedBlogData.title"
-                  type="text"
-                  class="form-control"
-                  placeholder="Title"
-                  formControlName="title"
-                />
-                <label for="floatingPassword">Blog Title</label>
-                <div
-                *ngIf="
-                UpdatedBlogData.get('title').invalid && UpdatedBlogData.get('title').touched
-                "
-                class="form-text val"
-              >
-            Please add Blog Title   
-              </div>
-              </div>
-              <br />
-              <div class="form-floating">
-                <textarea
-                  class="form-control"
-                  placeholder="Leave a comment here"
-                  style="height: 100px"
-                  [(ngModel)]="UpdatedBlogData.content"
-                  formControlName="content"
-                ></textarea>
-                <label for="floatingTextarea2">Content</label>
-                <div
-                *ngIf="
-                UpdatedBlogData.get('content').invalid && UpdatedBlogData.get('content').touched
-                "
-                class="form-text val"
-              >
-              Please add Content 
-              </div>
-              </div>
-              <br />
-              <div class="form-floating">
-                <input
-                  type="text"
-                  class="form-control"
-                  formControlName="imageurl"
-                  [(ngModel)]="UpdatedBlogData.imageurl"
-                  placeholder="Image Url"
-                />
-                <label for="floatingPassword">Image Url </label>
-                <div
-                *ngIf="
-                UpdatedBlogData.get('imageurl').invalid && UpdatedBlogData.get('imageurl').touched
-                "
-                class="form-text val"
-              >
-              Please add ImageUrl   
-              </div>
-              </div>
-              <br />
-              <label class="m-1" for="selectcategory">Select Category</label>
-              <select
-                class="form-select"
-                aria-label=".form-select-lg example"
-                style="height: 50px"
-                formControlName="Category"
-                placeholder="Select Blog Category"
-              name="selectcategory"
-              >
-                <option value="AutoMobile">AutoMobile</option>
-                <option value="Educational">Educational</option>
-                <option value="Global">Global</option>
-                <option value="GeoPolytics">GeoPolytics</option>
-                <option value="Health">Health</option>
-                <option value="Technology">Technology</option>
-                <option value="News">News</option>
-              </select>
-              <div
-              *ngIf="
-              UpdatedBlogData.get('Category').invalid && UpdatedBlogData.get('Category').touched
-              "
-              class="form-text val"
-            >
-            Please Select Category  
-            </div>
-              <br />
-              <div class="d-flex gap-4">
-                <button [disabled]="UpdatedBlogData.invalid || !UpdatedBlogData.touched || loading" class="btn w-50 m-auto btn-primary"> <span *ngIf="loading" class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-                    <span *ngIf="!loading">Update</span></button>
-                  <button [disabled]="UpdatedBlogData.invalid || loading" class="btn w-50 m-auto btn-primary"> <span *ngIf="loading" class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-                    <span  >Preview</span></button>
-              </div>
-           
-            </form>
-          </div>
-        
-  
+<div class="container bg-light">
+  <div class="p-4  w-md-50 m-auto mt-4">
+    <h3 class="p-2">Update Blog</h3>
+    <form [formGroup]="UpdatedBlogData" (ngSubmit)="UpdateBlog()">
+      <div class="form-floating">
+        <input
+          [(ngModel)]="UpdatedBlogData.title"
+          type="text"
+          class="form-control"
+          placeholder="Title"
+          formControlName="title"
+        />
+        <label for="floatingPassword">Blog Title</label>
+        <div
+          *ngIf="UpdatedBlogData.get('title').invalid && UpdatedBlogData.get('title').touched"
+          class="form-text val"
+        >
+          Please add Blog Title
+        </div>
+      </div>
+      <br />
+      <div class="form-floating">
+        <textarea
+          class="form-control"
+          placeholder="Leave a comment here"
+          style="height: 100px"
+          [(ngModel)]="UpdatedBlogData.content"
+          formControlName="content"
+        ></textarea>
+        <label for="floatingTextarea2">Content</label>
+        <div
+          *ngIf="UpdatedBlogData.get('content').invalid && UpdatedBlogData.get('content').touched"
+          class="form-text val"
+        >
+          Please add Content
+        </div>
+      </div>
+      <br />
+      <div class="form-floating">
+        <input
+          type="text"
+          class="form-control"
+          formControlName="imageurl"
+          [(ngModel)]="UpdatedBlogData.imageurl"
+          placeholder="Image Url"
+        />
+        <label for="floatingPassword">Image Url</label>
+        <div
+          *ngIf="UpdatedBlogData.get('imageurl').invalid && UpdatedBlogData.get('imageurl').touched"
+          class="form-text val"
+        >
+          Please add ImageUrl
+        </div>
+      </div>
+      <br />
+      <label class="m-1" for="selectcategory">Select Category</label>
+      <select
+        class="form-select"
+        aria-label=".form-select-lg example"
+        style="height: 50px"
+        formControlName="Category"
+        placeholder="Select Blog Category"
+        name="selectcategory"
+      >
+        <option value="AutoMobile">AutoMobile</option>
+        <option value="Educational">Educational</option>
+        <option value="Global">Global</option>
+        <option value="GeoPolytics">GeoPolytics</option>
+        <option value="Health">Health</option>
+        <option value="Technology">Technology</option>
+        <option value="News">News</option>
+      </select>
+      <div
+        *ngIf="UpdatedBlogData.get('Category').invalid && UpdatedBlogData.get('Category').touched"
+        class="form-text val"
+      >
+        Please Select Category
+      </div>
+      <br />
+      <div class="d-grid gap-4 d-md-flex justify-content-md-center">
+        <button
+          [disabled]="UpdatedBlogData.invalid || !UpdatedBlogData.touched || loading"
+          class="btn btn-primary"
+        >
+          <span *ngIf="loading" class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+          <span *ngIf="!loading">Update</span>
+        </button>
+        <button [disabled]="UpdatedBlogData.invalid || loading" class="btn btn-primary">
+          <span *ngIf="loading" class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+          <span>Preview</span>
+        </button>
+      </div>
+    </form>
+  </div>
 </div>
+

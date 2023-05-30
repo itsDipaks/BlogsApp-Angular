@@ -5,7 +5,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class authGuard {
-
   constructor(private router: Router) {}
 
   canActivate( ): boolean {

@@ -16,10 +16,8 @@ export class HomeComponent implements OnInit {
     this.selectedTag = tag;
     this.loading=false
   }
-
   constructor(private blog: BlogService) {
   }
-
   ngOnInit() {
     this.loading=true
     this.blog.getallblog().subscribe(res =>{this.loading=false 

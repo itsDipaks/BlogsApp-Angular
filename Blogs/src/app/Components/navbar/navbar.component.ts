@@ -15,6 +15,7 @@ export class NavbarComponent implements OnInit {
   menuType: String = "default"
   hidenav:boolean=false
   ngOnInit(): void {
+    console.log("mount")
     this.router.events.subscribe((res: any) => {
       if (res.url) {
         if (localStorage.getItem("token") && res.url.includes("user")) {

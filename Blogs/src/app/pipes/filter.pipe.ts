@@ -5,8 +5,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class FilterPipe implements PipeTransform {
 
- 
-
 
     transform(BlogsArray: any[], selectedTag: string): any[] {
       console.log(BlogsArray)
