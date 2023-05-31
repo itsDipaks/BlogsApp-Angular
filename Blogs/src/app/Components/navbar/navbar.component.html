@@ -26,11 +26,11 @@
 
     <div [ngSwitch]="menuType"  class="collapse navbar-collapse text-center w-50 " id="navbarsExample03">
       <ul   *ngSwitchCase="'default'"  class=" navbar-nav me-auto d-flex w-100 justify-content-evenly b-2 mb-sm-0 ">
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a routerLinkActive="active" routerLink="/" class="nav-link">
             Home
           </a>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a routerLinkActive="active" routerLink="about" class="nav-link">
             About 
@@ -45,10 +45,15 @@
             UserPanel
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="!istoken">
           <a routerLink="login" routerLinkActive="active" class="nav-link">
             Login
           </a>
+        </li>
+        <li class="nav-item" *ngIf="istoken">
+          <button (click)="logoutme()" class="btn btn-danger">
+            Logout
+          </button>
         </li>
     
       </ul>

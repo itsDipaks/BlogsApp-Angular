@@ -1,18 +1,9 @@
 <!-- Using Reactive form method  -->
 
-<div
-  class="d-flex  justify-content-between border bg-light"
-  style="
-    width: 70%;
-    margin: auto;
-    align-items: center;
-    border-top-right-radius: 10%;
-    border-bottom-right-radius: 10%;
-    justify-content: space-between;
-  "
->
-  <div class="container-sm p-4" style="width: 45%">
-    <main class="form-signin m-auto">
+<div class="d-flex flex-md-row justify-content-between mt-4 bg-light border" style="width: 65%; margin: auto; align-items: center;border-top-right-radius: 10% ; border-bottom-right-radius: 10%;  ">
+
+  <div class="container-xxl    px-4 py-2 " style="box-sizing: border-box;">
+    <main class="form-signin m-auto ">
       <form [formGroup]="SignupData" (ngSubmit)="submitSignupData()">
         <h1 class="h3 mb-3 fw-normal text-center ">Create Account</h1>
         <div class="text-center">
@@ -92,18 +83,8 @@
     </main>
   </div>
 
-  <div class="" style="width: 50%; position: relative">
-    <img
-      src="../../../assets//signinimg.png"
-      style="
-        width: 100%;
-        border-top-right-radius: 10%;
-        border-bottom-right-radius: 10%;
-      "
-      alt="signup"
-    />
-    <h1 style="position: absolute; top: 40%; color: whitesmoke; left: 10%">
-      Welcome to BlogiFiy
-    </h1>
+  <div class="w-80 position-relative d-none d-md-block">
+    <img src="../../../assets/signinimg.png" style="width: 100%;filter: blur(0.7px); border-top-right-radius: 10% ; border-bottom-right-radius: 10%;" alt="signup">
+    <h1 class="text-center" style="position: absolute; top: 35%; color: whitesmoke; left: 25%;font-size: 1.8rem;"> Welcome to <br><span  class="text-center    " style="font-size: 3.8rem;"> BlogiFiy</span>  </h1>
   </div>
 </div>

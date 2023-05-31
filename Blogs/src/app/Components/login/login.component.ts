@@ -19,18 +19,17 @@ constructor(private Use:AuthService,private router:Router){
  
 getLogindata (event:any,data:any){
   event.preventDefault();
-
   this.loading=true
   try{
     this.Use.login(data.value).subscribe((res:any )=>{
       if(res.msg=="User Not Found Please Signup!!" || res.msg=="Authentication Faild please Check your Password"){
    alert(res.msg)
-
+   window.location.reload();
         this.loading=false
       }else{
         this.Use.setToken(res.token)
      alert("login Sucess")
-    
+    this.Use.isloginauth=true
         this.loading=false
         this.router.navigate(['/'])
       }

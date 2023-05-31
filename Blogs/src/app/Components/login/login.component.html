@@ -1,50 +1,41 @@
-
-<div class="d-flex flex-md-row justify-content-between   bg-light  border " style="  width: 70%; margin: auto;  align-items: center;border-top-left-radius: 10%;border-bottom-left-radius: 10%;"> 
-    <div class="" style=" width: 50%;position: relative; ">
-    <img src="../../../assets//signinimg.png"   style="width: 100%;border-top-left-radius: 10%;border-bottom-left-radius: 10%;" alt="signup">
- <h1 style="position: absolute; top: 40%; color: whitesmoke; left: 10%;">
-  Welcome to BlogiFiy
- </h1>
- <!-- <button class="btn btn-primary" routerLink="/"  style="position: absolute; top: 10%; color: whitesmoke; right: 10%;"> <-- Back home </button> -->
+<div class="d-flex flex-md-row justify-content-between mt-4 bg-light border" style="width: 65%; margin: auto; align-items: center; border-top-left-radius: 10% ; border-bottom-left-radius: 10%;">
+  <div class="w-80 position-relative d-none d-md-block">
+    <img src="../../../assets/signinimg.png" style="width: 100%;filter: blur(0.7px); border-top-left-radius: 10% ; border-bottom-left-radius: 10%;" alt="signup">
+    <h1 class="text-center" style="position: absolute; top: 35%; color: whitesmoke; left: 25%;font-size: 1.8rem;"> Welcome to <br><span  class="text-center    " style="font-size: 3.8rem;"> BlogiFiy</span>  </h1>
   </div>
-
-  <div class="container-sm  p-4 mt-4" style="width:45%">
-    <main class="form-signin w-100 m-auto">
-        <form #loginForm="ngForm" (ngSubmit)=getLogindata($event,loginForm)>
-          <h1 class="h3 mb-3 fw-normal text-center"> Sign in</h1>
-          <div class="text-center">
-
-            <fa-icon class="fa-3x" [icon]="faLock"></fa-icon>
+  <div class="container-xxl   p-4 mt-4">
+    <main class="form-signin">
+      <form #loginForm="ngForm" (ngSubmit)="getLogindata($event, loginForm)">
+        <h1 class="h3 mb-3 fw-normal text-center">Sign in</h1>
+        <div class="text-center">
+          <fa-icon class="fa-3x" [icon]="faLock"></fa-icon>
+        </div>
+        <div class="form-floating">
+          <input #upemail="ngModel" type="email" email class="form-control" required name="email"
+            placeholder="myemail@gamail.com" ngModel>
+          <label for="floatingInput">Email address</label>
+          <div *ngIf="upemail.invalid && upemail.touched" class="form-text val">
+            Please enter email
           </div>
-          <div class="form-floating">
-            <input #upemail="ngModel"  type="email" email class="form-control"  required name="email" placeholder="myemail@gamail.com" ngModel >
-            <label for="floatingInput">Email address</label>
-            <div *ngIf="upemail.invalid && upemail.touched " class="form-text val"  >
-              Please Enter Email
-            </div>
+        </div>
+        <br>
+        <div class="form-floating">
+          <input #uppassword="ngModel" type="password" minlength="8" maxlength="20" class="form-control" required
+            name="password" placeholder="Password" ngModel>
+          <label for="floatingPassword">Password</label>
+          <div *ngIf="uppassword.invalid && uppassword.touched" class="form-text val">
+            Please enter password
           </div>
-          <br>
-          <div class="form-floating">
-            <input #uppassword="ngModel"  type="password"  minlength="8"
-            maxlength="20"   class="form-control" required  name="password" placeholder="Password" ngModel >
-            <label  for="floatingPassword">Password</label>
-            <div *ngIf="uppassword.invalid && uppassword.touched " class="form-text val"  >
-             Please Enter password
-           </div>
-           
-          </div>
-          <br>          
-          <!-- <div class="checkbox mb-3">
-            <label>
-              <input type="checkbox" value="remember-me"> Remember me
-            </label>
-          </div> -->
-          <p class="text-end text-secondary"> Don't have an account ? <a routerLink="../signup"> SignUp...</a></p>
-          <button [disabled]="loginForm.invalid || loading" class="w-50 btn btn-lg btn-primary border  text-center" type="submit"> <span *ngIf="loading" class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span><span *ngIf="!loading">Login</span></button>
-        </form>
-      </main>
-</div>
-
-</div>
-
+        </div>
+        <br>
+        <p class="text-center text-secondary">Don't have an account? <a routerLink="../signup">SignUp...</a></p>
+        <button [disabled]="loginForm.invalid || loading" class="w-50 btn btn-lg btn-primary border text-center"
+          type="submit">
+          <span *ngIf="loading" class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+          <span *ngIf="!loading">Login</span>
+        </button>
+      </form>
+    </main>
+  </div>
   
+</div>

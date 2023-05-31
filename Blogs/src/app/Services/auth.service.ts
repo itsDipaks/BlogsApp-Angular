@@ -9,7 +9,7 @@ export class AuthService {
   url: string = "https://blogifiy-86v6.onrender.com/auth/";
   constructor(private router: Router, private http: HttpClient) { }
 
-
+isloginauth:boolean=false
   // ======Local Storage Related ==============
   setToken(token: any) {
 
@@ -23,6 +23,7 @@ export class AuthService {
   // =====Auth Services ===========
   login(user: string) {
     return this.http.post(this.url + "login", user)
+
   }
 
   signup(user: any) {
@@ -32,6 +33,7 @@ export class AuthService {
   logout() {
     localStorage.removeItem("token")
     this.router.navigate(["login"])
+    this.isloginauth=false
   }
 
 
