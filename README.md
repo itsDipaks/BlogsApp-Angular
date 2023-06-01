@@ -38,7 +38,11 @@ $ ng serve -o
 You can access the deployed application, browse the code on GitHub, and watch the demo video using the links below:
 
 **App Link**:https://6476f04c481a91693b9f23b7--splendorous-dolphin-1785f0.netlify.app/
+
+
 **GitHub Link**: https://github.com/itsDipaks/BlogsApp-Angular
+
+
 **Demo Video**: https://drive.google.com/file/d/1xa43oMzgMtobf7EvUBeBK6ZgwLWDpyao/view?usp=sharing 
 
 ## Author
