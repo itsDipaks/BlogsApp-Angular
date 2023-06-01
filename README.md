@@ -58,9 +58,6 @@ You can access the deployed application, browse the code on GitHub, and watch th
 - ** Add Blog **
 ![Screenshot (808)]( https://github.com/itsDipaks/Projects-Static-File/blob/master/Blogifiy/Add%20New%20Blogs.png?raw=true)
 
-- **Check_out_page**
-![Screenshot (810)](https://user-images.githubusercontent.com/63177572/208614029-50750bce-4452-44da-8a5c-f9c28e825c1c.png)
----
 
 
 ## Author
