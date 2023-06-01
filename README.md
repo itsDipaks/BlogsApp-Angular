@@ -45,5 +45,23 @@ You can access the deployed application, browse the code on GitHub, and watch th
 
 **Demo Video**: https://drive.google.com/file/d/1xa43oMzgMtobf7EvUBeBK6ZgwLWDpyao/view?usp=sharing 
 
+
+- **Home Page **
+![Screenshot (805)](https://github.com/itsDipaks/Projects-Static-File/blob/master/Blogifiy/Home%20Page.png?raw=true)
+
+- **Blog Details Page **
+![Screenshot (807)](https://github.com/itsDipaks/Projects-Static-File/blob/master/Blogifiy/Blog%20Details.png?raw=true)
+
+- **Auth Pages**
+![Screenshot (809)]( https://github.com/itsDipaks/Projects-Static-File/blob/master/Blogifiy/Auth.jpg?raw=true)
+
+- ** Add Blog **
+![Screenshot (808)]( https://github.com/itsDipaks/Projects-Static-File/blob/master/Blogifiy/Add%20New%20Blogs.png?raw=true)
+
+- **Check_out_page**
+![Screenshot (810)](https://user-images.githubusercontent.com/63177572/208614029-50750bce-4452-44da-8a5c-f9c28e825c1c.png)
+---
+
+
 ## Author
 ### 😊 Dipak Pawar
